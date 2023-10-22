@@ -1,0 +1,116 @@
+ФУНКЦИЯ
+
+int* sl(int *a, int *b, int size1, int size2)
+{
+	int i = 0, j = 0, *c = new int[size1+size2];
+	for (int k = 0; k < size1 + size2; k++)
+	{
+		if (i == size1)
+		{   c[k] = b[j];
+			j++;
+		}
+		else
+		{   if (j == size2)
+			{   c[k] = a[i];
+				i++;
+			}
+			else
+			{   if (a[i] <= b[j])
+				{   c[k] = a[i];
+					i++;
+				}
+				else
+				{   if (a[i] > b[j])
+					{   c[k] = b[j];
+						j++;
+					}
+				}
+			}
+		}
+	}
+	return c;
+}
+
+
+---------------------
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+#include <time.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int *a,*b, *c, m, n, i=0, j=0;
+	cout << "Введите размер первого массива: "; cin >> n;
+	cout << "Введите размер второго массива: "; cin >> m; 
+	a = new int[n];
+	b = new int[m];
+	c = new int[m+n];
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Введите элемент первого массива №" << i << ": "; cin >> a[i];
+	}
+	cout << "\n";
+	for (int j = 0; j < m; j++)
+	{
+		cout << "Введите элемент второго массива №" << j << ": "; cin >> b[j];
+	}
+	if (a != NULL)
+	{
+		cout << "\n----> Первый массив успешно создан :)\n";
+			for (int i = 0; i < n; i++)
+			{
+				cout << setw(3) << a[i] << " ";
+			}
+	}
+	if (b != NULL)
+	{
+		cout << "\n----> Второй массив успешно создан :)\n";
+			for (int j = 0; j < m; j++)
+			{
+				cout << setw(3) << b[j] << " ";
+			}
+	}
+
+	for (int k = 0; k < m + n; k++)
+	{
+		if (i==n) 
+		{
+			c[k] = b[j];
+			j++;
+		}
+		else
+		{ 
+			if (j == m) 
+			{
+				c[k] = a[i];
+				i++;
+			}
+			else
+			{
+				if (a[i] <= b[j])
+				{
+					c[k] = a[i];
+					i++;
+				}
+				else 
+				{
+					if (a[i] > b[j])
+					{
+						c[k] = b[j];
+						j++;
+					}
+				}
+			}
+		}
+	}
+
+	cout << "\n---> Массив, образованный слиянием двух предыдущих\n";
+	for (int i = 0; i < m + n; i++) cout << setw(3) << c[i] << " ";
+
+	delete[]a;
+	delete[]b;
+	delete[]c;
+	return 0;
+}

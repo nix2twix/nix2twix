@@ -1,0 +1,67 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <vector>
+#include <set>
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int n;
+    float m = 2.54, D = 2.64;
+    float x, y = 0, sumY = 0;
+    std::cout << "Введите количество чисел (нормальное распределение): ";
+    std::cin >> n;
+    float sigma = sqrt(D);
+    std::vector <float> sequence;
+    std::set <float> reps;
+    std::cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        sumY = 0;
+        for (size_t i = 0; i < 12; i++)
+        {
+            sumY += ((double)rand() / (RAND_MAX)); //генерация чисел в диапазоне [0,1]
+        }
+        x = sigma * (sumY - 6) + m;
+        sequence.push_back(floor(x*10)/10);
+        reps.insert(sequence[i]);
+    } std::cout << "\n";
+
+    std::cout << "\nНормальное распределение:\n";
+    std::set <float>::iterator it = reps.begin();
+    for (size_t i = 0; i < reps.size(); i++)
+    {
+        float probability = (float)count(sequence.begin(), sequence.end(), *it) / n;
+        std::cout << "Число: " << *it << "\tвероятность: " << probability << "\n";
+        it++;
+    }
+
+    std::cout << "\n\nВведите количество чисел (заданное распределение): ";
+    std::cin >> n;
+    sequence.clear();
+    reps.clear();
+    std::cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        y = ((double)rand() / (RAND_MAX)); //генерация чисел в диапазоне [0,1]
+        if (y <= 0.63) x = (19 * y) / 4;
+        else
+        {
+            if (y <= 0.789) x = 5 - sqrt(16 - 19 * y);
+            else x = (19 * y) / 2 - 3.5;
+        }
+        sequence.push_back(floor(x * 10) / 10);
+        reps.insert(sequence[i]);
+    } std::cout << "\n";
+
+    std::cout << "\nЗаданное распределение:\n";
+    it = reps.begin();
+    for (size_t i = 0; i < reps.size(); i++)
+    {
+        float probability = (float)count(sequence.begin(), sequence.end(), *it) / n;
+        std::cout << "Число: " << *it << "\tвероятность: " << probability << "\n";
+        it++;
+    }
+    return 0;
+}

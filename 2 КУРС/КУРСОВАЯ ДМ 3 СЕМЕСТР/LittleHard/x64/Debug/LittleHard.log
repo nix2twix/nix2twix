@@ -1,0 +1,8 @@
+﻿  bruteforcesolver.cpp
+D:\Cloned Reps\bruteforcesolver.cpp(30,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Cloned Reps\bruteforcesolver.cpp(34,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Cloned Reps\bruteforcesolver.cpp(38,29): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  littlesolver.cpp
+  main.cpp
+D:\Cloned Reps\mainwindow.h(3,10): fatal  error C1083: Не удается открыть файл включение: QMainWindow: No such file or directory,
+  Создание кода...

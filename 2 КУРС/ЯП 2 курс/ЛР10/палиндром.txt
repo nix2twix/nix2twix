@@ -1,0 +1,84 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <windows.h>
+#include <algorithm>
+using namespace std;
+
+string ReadStringFromMyFile() //посимвольный ввод
+{
+	ifstream input("input.txt");
+	char symbol;
+	string line;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	return line;
+}
+
+vector <string> SplitWords(string lines)
+{
+	string currentWord;
+	vector <string> wordsArray;
+	for (int i = 0; i < lines.length(); i++)
+	{
+		if (lines[i] != ' '
+			&& lines[i] != '.'
+			&& lines[i] != ','
+			&& lines[i] != ':'
+			&& lines[i] != '\n'
+			&& lines[i] != '\t'
+			&& lines[i] != '('
+			&& lines[i] != ')'
+			&& lines[i] != '!') currentWord.push_back(lines[i]);
+		else
+		{
+			if (!currentWord.empty()) wordsArray.push_back(currentWord);
+			currentWord.clear();
+		}
+	}
+	return wordsArray;
+}
+
+bool PalindromChecker(string word)
+{
+	if (word.length())
+	{
+		string firstHalf, secondHalf;
+		int middleSymbol;
+		if (word.length() % 2 != 0)
+		{
+			middleSymbol = word.length() / 2 + 1;
+			firstHalf = word.substr(0, middleSymbol);
+			secondHalf = word.substr(middleSymbol - 1, word.length());
+			reverse(secondHalf.begin(), secondHalf.end());
+		}	
+		else
+		{
+			middleSymbol = word.length() / 2;
+			firstHalf = word.substr(0, middleSymbol);
+			secondHalf = word.substr(middleSymbol, word.length());
+			reverse(secondHalf.begin(), secondHalf.end());
+		}
+		return firstHalf == secondHalf;
+	}
+}
+
+int main()
+{
+	ofstream output("output.txt");
+	string line = ReadStringFromMyFile();
+	vector <string> palindroms;
+	vector <string> lines = SplitWords(line);
+
+	for (auto to : lines)
+	{
+		if (PalindromChecker(to)) output << to << "\n";
+	}
+	output.close();
+	return 0;
+}

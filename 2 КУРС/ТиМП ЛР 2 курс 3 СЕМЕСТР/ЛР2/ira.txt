@@ -1,0 +1,92 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+double Randomizer(int* pointer);
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    std::ofstream outXNORM("outXNORM.txt");
+    std::ofstream outYNORM("outYNORM.txt");
+    std::ofstream outXSET("outXSET.txt");
+    std::ofstream outYSET("outYSET.txt");
+
+    int n, x0 = 12;
+    int* pntX0 = &x0;
+    float x, y = 0, s = 0;
+    float m = 61/27, D = 2521/1458;
+    std::cout << "Введите количество чисел (нормальное распределение): "; std::cin >> n;
+    float sigma = sqrt(D);
+    std::vector <float> arr;
+    std::cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        s = 0;
+        for (size_t i = 0; i < 12; i++)
+        {
+            s += Randomizer(pntX0); //генерация чисел в диапазоне [0,1]
+        }
+        x = sigma * (s - 6) + m;
+        arr.push_back(floor(x * 10) / 10);
+    } std::cout << "\n";
+
+    std::cout << "\nНормальное распределение:\n";
+    sort(arr.begin(), arr.end());
+    int i = 0, k = 1;
+    while (i < arr.size() - 1)
+    {
+        k = 1;
+        while (i < n - 1 && arr[i] == arr[i + 1])
+        {
+            k++;
+            i++;
+        }
+        std::cout << "Число: " << arr[i] << "\tвероятность: " << (float)k / n << "\n";
+        outXNORM << arr[i] << '\n';
+        outYNORM << (float)k / n << '\n';
+        i++;
+    }
+
+    std::cout << "\n\nВведите количество чисел (заданное распределение): ";
+    std::cin >> n;
+    arr.clear();
+    std::cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        y = Randomizer(pntX0); //генерация чисел в диапазоне [0,1]
+        if (y <= 0.8) x = (9 * y) / 2;
+        else x = 5 - 3 * sqrt(1 - y);
+        arr.push_back(floor(x * 10) / 10);
+    } std::cout << "\n";
+
+    std::cout << "\nЗаданное распределение:\n";
+    sort(arr.begin(), arr.end());
+    i = 0, k = 1;
+    while (i < n - 1)
+    {
+        k = 1;
+        while (i < n - 1 && arr[i] == arr[i + 1])
+        {
+            k++;
+            i++;
+        }
+        std::cout << "Число: " << arr[i] << "\tвероятность: " << (float)k / n << "\n";
+        outXSET << arr[i] << '\n';
+        outYSET << (float)k / n << '\n';
+        i++;
+    }
+    outXNORM.close();
+    outXSET.close();
+    outYNORM.close();
+    outYSET.close();
+    return 0;
+}
+
+    double Randomizer(int* pointer)
+{
+    int c = 15, m = 65536, a = 13;
+    int val = (a * (*pointer) + c) % m;
+    *pointer = val;
+    return (float)val / m;
+}

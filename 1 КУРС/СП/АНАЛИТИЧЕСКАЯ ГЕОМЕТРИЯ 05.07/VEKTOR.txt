@@ -1,0 +1,49 @@
+class vektor
+{
+private:
+    point Begin, End;
+    int X,Y;
+public: vektor(point AA, point BB)
+{
+    Begin = AA;
+    End = BB;
+    X = End.getx() - Begin.getx();
+    Y = End.gety() - Begin.gety();
+}
+public: vektor(int XX = 0, int YY = 0)
+{
+    X = XX;
+    Y = YY;
+}
+      point getBegin() {return Begin;}
+      point getEnd() {return End;}
+      friend istream& operator >> (istream& input, vektor&a)
+      {
+          input >> a.X >> a.Y;
+          return input;
+      }
+      friend ostream&operator << (ostream& output, vektor&a)
+      {
+          output << "(" << a.X << ";" << a.Y << ")";
+          return output;
+      }
+   double module()
+      {
+          return sqrt(X * X + Y * Y);
+      }
+   int kos_pr(vektor b)
+      {
+          return X * b.Y - b.X * Y;
+      }
+  bool checkIntersect(vektor&P3P4)
+      {
+          point P1 = Begin;
+          point P2 = End;
+          point P3 = P3P4.getBegin();
+          point P4 = P3P4.getEnd();
+          vektor P1P2(P1,P2),P1P3(P1, P3), P1P4(P1, P4);
+          vektor P3P1(P3, P1), P3P2(P3, P2);
+          if ((P1P2.kos_pr(P3P4) * P1P2.kos_pr(P1P4) <= 0) & (P3P4.kos_pr(P3P1) * P3P4.kos_pr(P3P1) >= 0)) return true;
+          else return false;
+      }
+};

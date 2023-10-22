@@ -1,0 +1,28 @@
+void resheto_eratosfena(int x)
+{
+	int n, *simple;
+	n = x;
+	simple = new int[n];
+	for (int i = 0; i <= n; i++)
+	{
+		simple[i] = true;
+		if (i % 2 == 0) simple[i] = false;
+	}
+		simple[0] = simple[1] = false;
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (simple[i] == true)
+		{
+			for (int j = i * i; j < n; j += i)
+			{
+				simple[j] = false;
+			}
+		}
+	}
+	for (int i = 0; i <= n; i++)
+	{
+		if (simple[i] == true)
+			cout << i << " ";
+	}
+	return;
+}

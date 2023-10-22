@@ -1,0 +1,76 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+#include <algorithm>
+using namespace std;
+int binSearch(int* array, int size, int key) 
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int l = 0; //начало
+	int r = size - 1; //конец
+
+	while (l <= r)
+	{
+		int m = (l + r) / 2; //формула поиска середины
+		if (key == array[m])
+		{
+			return m;
+		}
+		else
+		{
+			if (key > array[m])
+			{
+				l = m + 1;
+			}
+			else r = m - 1;
+		}
+	}
+	return -1;
+}
+int binSearch2(int* array, int size, int key)
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int l = -1; //начало
+	int r = size; //конец
+
+	while (l < r - 1)
+	{
+		int m = (l + r) / 2; //формула поиска середины
+		if (key == array[m])
+		{
+			return m;
+		}
+		else
+		{
+			if (key > array[m])
+			{
+				r = m;
+			}
+			else l = m;
+		}
+	}
+	return -1;
+}
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	srand((unsigned)time(NULL));
+	int n, x;
+	cout << "Размер массива: "; cin >> n;
+	int* a = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		 a[i] = rand()%99;
+		 cout << a[i] << "\t";
+	}
+	sort(a, a + n);
+	cout << "\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << "\t";
+	}
+	cout << "\nЧисло для поиска: "; cin >> x;
+	cout << "Индекс ключа: " << binSearch2(a, n, x);
+	delete[]a;
+	return 0;
+}

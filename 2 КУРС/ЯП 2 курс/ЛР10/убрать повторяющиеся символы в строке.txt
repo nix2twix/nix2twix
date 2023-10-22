@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, m;
+    string s1, s2;
+    cin >> s1;
+    for (n = 0; n < s1.size(); n++) {
+        if (s1[n] == s1[n + 1]) {
+            s1.erase(n, 1);
+        }
+    }
+    s2 = s1;
+    for (n = 0; n < s1.size(); n++) {
+        for (m = n + 1; m < s2.size() + 1; m++) {
+            if (s1[n] == s2[m]) {
+                s2.erase(m, 1);
+            }
+        }
+    }
+    cout << s2;
+}

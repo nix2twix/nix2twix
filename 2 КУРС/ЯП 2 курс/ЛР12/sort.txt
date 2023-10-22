@@ -1,0 +1,186 @@
+int* SortBySelection(int* a, int size)
+{
+    int j = 0;
+    int c = 0;
+    for (int i = 0; i < size; i++) {
+        j = i;
+        for (int k = i; k < size; k++) {
+            if (a[j] > a[k]) {
+                j = k; //индекс минимума
+            }
+        }
+        swap(a[i], a[j]);
+    }
+    return a;
+}
+
+int* BubbleSort(int* a, int size)
+{
+    for (int i = 0; i < size; i++) 
+    {
+        for (int j = 0; j < size-1; j++)
+        {
+            if (a[j] > a[j + 1])
+            {
+                swap(a[j], a[j + 1]);
+            }
+        }
+    }
+    return a;
+}
+
+int* ShakerSort(int* a, int size)
+{
+    int left = 0, i;
+    int right = size - 1;
+        while (left <= right)
+        {
+            for (i = right; i >= left; i--)
+                if (a[i-1] > a[i]) swap(a[i], a[i-1]);
+            left++;
+            for (i = left; i <= right; i++)
+                if (a[i-1] > a[i]) swap(a[i], a[i-1]);
+            right--;
+        }
+    return a;
+}
+
+int* CombSort(int* a, int size) //расческа
+{
+    double faktor = 1.2473309; 
+    int step = size;
+    bool swapped = true; // условие выполнения цикла
+    while (step != 1 || swapped) { //пока разрыв больше 1 и была сделана замена
+        step = step / faktor;
+        if (step < 1)
+            step = 1;
+        swapped = false;
+        for (int i = 0; i < size - step; ++i) //сравнение всех элементов с текущим разрывом
+            if (a[i] > a[i + step]) {
+                swap(a[i], a[i + step]);
+                swapped = true;
+            }
+    }
+    return a;
+}
+
+int* CopySort(int* a, int size) 
+{
+    int* subArray = new int[size];
+    int j = 0, counter = 0;
+    for (int i = 0; i < size; i++) 
+    {
+        subArray[i] = -1;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        counter = 0;
+        for (int j = 0; j < size; j++)
+        {
+            if (a[j] < a[i]) counter++;
+        }
+        subArray[counter] = a[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        if (subArray[i] == -1)
+        {
+            j = i;
+            while (subArray[j] == -1)
+            {
+                subArray[j] = subArray[i-1];
+                j++;
+            }
+        }
+    }
+    return subArray;
+}
+
+int* CalculationSort(int* a, int size) 
+{
+    int max = *max_element(a, a + size);
+    int min = *min_element(a, a + size);
+    int k = 0;
+    int diapazone = max + 1 - min;
+    int* subArray = new int[diapazone]; //[min, max]
+    for (int i = 0; i < diapazone; i++) {
+        subArray[i] = 0;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        int k = 0;
+        for (int j = 0; j < size; j++)
+        {
+            if (a[i] == a[j]) k++;
+        }
+        subArray[a[i]] = k;
+    }
+    int j = 0;
+    int index = 0;
+    for (int i = 0; i < diapazone; i++)
+    {
+        if (subArray[i] != 0)
+        {
+            j = 0;
+            while (j < subArray[i])
+            {
+                a[index] = i;
+                index++;
+                j++;
+            }
+        }
+    }
+    return a;
+}
+
+int* InsertionSort(int* a, int size)
+{
+    int delta;
+    int j; 
+    for (int i = 1; i < size; i++)
+    {
+        delta = a[i]; 
+        j = i-1; 
+        while (j >= 0 && a[j] > delta)
+        {
+            swap(a[j], a[j + 1]);
+            j--;
+        }
+    }
+    return a;
+}
+
+int* MergeSort(int* a, int first, int last) //номера 1-го и последнего элементов
+{
+    {
+        if (first < last)
+        {
+            MergeSort(a, first, (first + last) / 2); //сортировка левой части
+            MergeSort(a, (first + last) / 2 + 1, last); //сортировка правой части
+            Merge(a, first, last); //слияние двух частей
+        }
+    }
+    return a;
+};
+
+void Merge(int* a, int first, int last)
+{
+    int middle, start, final, j;
+    int* b = new int[100];
+    middle = (first + last) / 2; //медиана
+    start = first; //начало левой части
+    final = middle + 1; //начало правой части
+    for (j = first; j <= last; j++) //выполнять от начала до конца
+        if ((start <= middle) && ((final > last) || (a[start] < a[final])))
+        {
+            b[j] = a[start];
+            start++;
+        }
+        else
+        {
+            b[j] = a[final];
+            final++;
+        }
+    for (j = first; j <= last; j++) a[j] = b[j];
+};

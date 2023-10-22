@@ -1,0 +1,23 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+const double eps = 1e-8;
+int main()
+{
+	double a, x;
+	int n;
+	cin >> a >> n;
+	double r = a, l = 0, m;
+	while (r - l > eps)
+	{
+		m = (r + l) / 2;
+		if (pow(m, n) > a)
+		{
+			r = m;
+		}
+		else l = m;
+	}
+	cout << fixed << setprecision(7) << r;
+	return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector> 
+#include <set>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	set <int> s1 = { 1, 5, 4, 2 };
+	set <int> s2 = { 2, 8, 10 };
+	size_t count = s1.erase(1);
+	cout << "\n" << count << " elements was deleted." << "\n";
+	cout << "s1: ";  for (int x : s1) cout << x << " "; cout << "\n";
+	cout << "s2: "; for (int x : s2) cout << x << " "; cout << "\n";
+	set <int> s3;
+	s1.merge(s2);
+	cout << "объединение: ";  for (int x : s1) cout << x << " "; cout << "\n"; 
+	cout << "пересечение: "; for (int x : s2) cout << x << " "; cout << "\n";
+	return 0;
+}	

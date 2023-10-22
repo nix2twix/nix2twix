@@ -1,0 +1,22 @@
+vector <string> SplitWords(char symbolSplit, string lines)
+{
+	string currentWord;
+	vector <string> wordsArray;
+	for (int i = 0; i < lines.length(); i++)
+	{
+		if (lines[i] != symbolSplit 
+			&& lines[i] != '.' 
+			&& lines[i] != ','
+			&& lines[i] != '\n'
+			&& lines[i] != '\t'
+			&& lines[i] != '('
+			&& lines[i] != ')'
+			&& lines[i] != '!') currentWord.push_back(lines[i]);
+		else
+		{
+			if (!currentWord.empty()) wordsArray.push_back(currentWord);
+			currentWord.clear();
+		}	
+	}
+	return wordsArray;
+}

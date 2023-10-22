@@ -1,0 +1,77 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+using namespace std;
+void merge(int *array, int size, int start, int end, int mid) //ф-я объединения массив
+{
+	int *newarray = new int[size];
+	int i, j, k;
+	i = start;
+	k = start;
+	j = mid + 1;
+
+	while (i <= mid && j <= end) {
+		if (array[i] < array[j]) {
+			newarray[k] = array[i];
+			k++;
+			i++;
+		}
+		else {
+			newarray[k] = array[j];
+			k++;
+			j++;
+		}
+	}
+
+	while (i <= mid) {
+		newarray[k] = array[i];
+		k++;
+		i++;
+	}
+
+	while (j <= end) {
+		newarray[k] = array[j];
+		k++;
+		j++;
+	}
+
+	for (i = start; i < k; i++) {
+		array[i] = newarray[i];
+	}
+}
+
+void mergeSort(int* array, int size, int start, int end)
+{
+	int mid;
+	if (start < end) {
+
+		mid = (start + end) / 2;
+		mergeSort(array, size, start, mid);
+		mergeSort(array, size, mid + 1, end);
+		merge(array, size, start, end, mid); 
+	}
+}
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	srand((unsigned)time(NULL));
+	int n, x;
+	cout << "Введите размер массива: "; cin >> n;
+	int *a = new int[n];
+	for (int i = 0; i<  n; i++)
+	{
+		a[i] = rand() % 10;
+	}
+	cout << "Массив до сортировки: ";
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << setw(5);
+	}
+	mergeSort(a, n, 0, n-1);
+	cout << "\nМассив после сортировки: ";
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << setw(5);
+	}
+	return 0;
+}

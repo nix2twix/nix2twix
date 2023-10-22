@@ -1,0 +1,158 @@
+//Определить, является ли заданная целая квадратная матрица n-го порядка симметричной (относительно главной диагонали).
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+#include <time.h>
+#include <iomanip>
+using namespace std;
+int main()
+
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n, k = 1, create;
+	cout << "Введите порядок матрицы: "; cin >> n;
+	cout << "Введите 1, если хотите, чтобы матрица создалась автоматически. \nВведите 2, если хотите ввести значения матрицы вручную: ";  cin >> create;
+	cout << "\n";
+	int** a = new int* [n];
+	for (int i = 0; i < n; i++)
+		a[i] = new int[n];
+
+	if (a != NULL)
+	{
+		if (create == 1)
+		{
+			srand((unsigned)time(NULL));
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					a[i][j] = rand() % 10;
+					cout << a[i][j] << " ";
+				}
+				cout << "\n";
+			}
+
+		}
+
+		else
+
+		{
+			if (create == 2)
+			{
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						cout << "Элемент номер " << k << ": ";  cin >> a[i][j];
+						k++;
+					}
+				}
+
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						cout << a[i][j] << " ";
+					}
+					cout << "\n";
+				}
+			}
+			else cout << "\nОшибка! Нет такого способа ввода. \n";
+		}
+		k = 0;
+		for (int j = 0; j < n-1; j++)
+		{
+			for (int i = j+1; i < n; i++)
+			{
+				if (a[i][j] == a[j][i]) k++;
+			}
+		}
+		if (k == (pow(n, 2)-n)/2) cout << "Матрица симметричная.";
+		else cout << "Матрица не симметричная.";}
+	else cout << "Ошибка";
+	for (int i = 0; i < n; i++)
+		delete[]a[i];
+	delete[]a;
+	return 0;
+}
+
+
+
+
+
+///////////относительно доп диагонали
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+using namespace std;
+int main()
+
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n, k = 1, create;
+	cout << "Введите порядок матрицы: "; cin >> n;
+	cout << "Введите 1, если хотите, чтобы матрица создалась автоматически. \nВведите 2, если хотите ввести значения матрицы вручную: ";  cin >> create;
+	cout << "\n";
+	int** a = new int* [n];
+	for (int i = 0; i < n; i++)
+		a[i] = new int[n];
+
+	if (a != NULL)
+	{
+		if (create == 1)
+		{	
+			srand((unsigned)time(NULL));
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					a[i][j] = rand() % 10;
+					cout << a[i][j] << " ";
+				}
+				cout << "\n";
+			}
+
+		}
+
+		else
+
+		{
+			if (create == 2)
+			{
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						cout << "Элемент номер " << k << ": ";  cin >> a[i][j];
+						k++;
+					}
+				}
+
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						cout << a[i][j] << " ";
+					}
+					cout << "\n";
+				}
+			}
+			else cout << "\nОшибка! Нет такого способа ввода. \n";
+		}
+		k = 0;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n - 1 - i; j++)
+			{
+				if (a[i][j] == a[n - 1 - j][n - 1 - i]) k++;
+			}
+		}
+		if (k == ((n * n - n) / 2)) cout << "Матрица симметричная.";
+		else cout << "Матрица не симметричная.";
+	}
+	else cout << "Ошибка";
+	for (int i = 0; i < n; i++)
+		delete[]a[i];
+	delete[]a;
+	return 0;
+}

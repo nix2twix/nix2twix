@@ -1,0 +1,31 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int i, j, * a, N, M, s, k = 0;
+	cout << "Введите количество элементов массива: ";  
+       cin >> N; //14
+	a = new int[N]; 
+	cout << "\n----> Массив успешно создан <----\n";
+		srand((unsigned)time(NULL));
+		for (i = 0; i < N; i++)
+		{
+			a[i] = rand() % 11;
+			cout << a[i] << " ";
+		}
+		cout << "\nЧисла, которые встречаются в массиве только по одному разу: \n";
+for (i = 0; i < N; i++)
+{
+	k = 0;
+	for (j = 0; j < N; j++)
+	{
+	if ((j != i) && (a[j] != a[i])) k++;
+	}
+	if (k == N - 1) cout << a[i] << " ";
+	}
+	delete[]a;
+	return 0;
+}

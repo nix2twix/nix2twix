@@ -1,0 +1,8 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(78,9): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(79,9): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(80,12): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(84,9): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(85,9): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\ConsoleApplication1.cpp(86,14): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  ConsoleApplication1.vcxproj -> C:\Users\Вика\Desktop\курсач\задача 4\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

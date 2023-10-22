@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+//объявление класса "точка" все относящееся к нему пишкется внутри {}, т.е. св-ва точки (координаты x,y)
+//а также методы/ф-ии, можно делать перегруженные операторы
+class point
+{
+	double x, y; //координаты точки
+	////////////////////конструктор точек
+public: point(double xx = 0, double yy = 0) //public -> делает доступным обращение к классу извне
+{
+	x = xx;
+	y = yy;
+}
+	  double getx() { return x; } //возврат х-координаты (абсциссы)
+	  double gety() { return y; }
+	  friend istream&operator >> (istream&input, point&p) 
+		  input >> p.x >> p.y;
+		  return input;
+	  }
+	  friend ostream&operator << (ostream&output, point& p) 
+	  {
+		  output << "(" << p.x << ";" << p.y << ")";
+		  return output;
+	  }
+	  point operator-(point b)
+	  {
+		  point res;
+		  res.x = x - b.x;
+		  res.y = y - b.y;
+		  return res;
+	  }
+	  point operator+(point b)
+	  {
+		  point res;
+		  res.x = x + b.x;
+		  res.y = y + b.y;
+		  return res;
+	  }
+	  double distanceSquare(point b)
+	  {
+		  return (x - b.x)*(x - b.x) + (y - b.y)*(y - b.y);
+	  }
+}; ////////////////не забудь точку с запятой!!!!!!!!!!!!!!!!!!!
+int main ()
+{
+	point p1(1.0,3.0), p2; 
+	double d = p1.distanceSquare(p2);
+	point p3 = p2 + p1;
+	cout << d;
+	return 0;
+}

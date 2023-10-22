@@ -1,0 +1,9 @@
+﻿  main.cpp
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(32,19): warning C4305: *=: усечение из "double" в "float"
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(40,17): warning C4305: +=: усечение из "double" в "float"
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(43,40): warning C4305: +=: усечение из "double" в "float"
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(106,16): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(107,16): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(168,20): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Вика\Desktop\tsp_aco-master\src\main.cpp(22): warning C4715: Search: значение возвращается не при всех путях выполнения
+  AntSolver.vcxproj -> C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\AntSolver\x64\Debug\AntSolver.exe

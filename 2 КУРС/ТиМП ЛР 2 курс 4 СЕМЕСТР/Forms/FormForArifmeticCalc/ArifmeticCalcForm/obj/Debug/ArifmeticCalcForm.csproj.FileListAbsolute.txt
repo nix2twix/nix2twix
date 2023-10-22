@@ -1,0 +1,13 @@
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.csproj.AssemblyReference.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.csproj.SuggestedBindingRedirects.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.Form1.resources
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.Properties.Resources.resources
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.csproj.GenerateResource.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.csproj.CoreCompileInputs.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\bin\Debug\ArifmeticCalcForm.exe.config
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\bin\Debug\ArifmeticCalcForm.exe
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\bin\Debug\ArifmeticCalcForm.pdb
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.exe
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.pdb
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.csproj.ResolveComReference.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormForArifmeticCalc\ArifmeticCalcForm\obj\Debug\ArifmeticCalcForm.Form2.resources

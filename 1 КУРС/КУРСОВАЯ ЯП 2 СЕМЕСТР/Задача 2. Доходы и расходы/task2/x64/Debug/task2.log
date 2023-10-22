@@ -1,0 +1,4 @@
+﻿  task2.cpp
+C:\Users\Вика\Desktop\курсач\task2\task2.cpp(15,7): warning C4101: l: неиспользованная локальная переменная
+C:\Users\Вика\Desktop\курсач\task2\task2.cpp(15,10): warning C4101: r: неиспользованная локальная переменная
+  task2.vcxproj -> C:\Users\Вика\Desktop\курсач\task2\x64\Debug\task2.exe

@@ -1,0 +1,37 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReadStringFromMyFile() //посимвольный ввод
+{
+	ifstream input("input.txt");
+	char symbol;
+	string line;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	return line;
+}
+
+int main()
+{
+	string line = ReadStringFromMyFile();
+
+	int i = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] == ' ' 
+			|| line[i] == '\n') line.erase(i, 1);
+		else i++;
+	}
+//	line.erase(remove(line.begin(), line.end(), '\n'));
+//	line.erase(remove(line.begin(), line.end(), ' '));
+	ofstream output("output.txt");
+	output << line;
+	output.close();
+	return 0;
+}

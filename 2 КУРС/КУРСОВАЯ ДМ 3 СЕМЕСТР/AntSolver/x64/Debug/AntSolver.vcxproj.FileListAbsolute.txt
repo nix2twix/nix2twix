@@ -1,0 +1,4 @@
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\AntSolver\x64\Debug\AntSolver.exe
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\AntSolver\x64\Debug\AntSolver.vcxproj.MdMergeInputs.cache
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\AntSolver\x64\Debug\AntSolver.vcxproj.cppwinrt_plat.cache
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\AntSolver\x64\Debug\AntSolver.vcxproj.cppwinrt_comp.cache

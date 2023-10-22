@@ -1,0 +1,27 @@
+﻿  Graph.cpp
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\Graph.h(68,30): warning C4244: =: преобразование "__int64" в "_Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\Graph.cpp(43,19): warning C4305: *=: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\Graph.cpp(51,17): warning C4305: +=: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\Graph.cpp(54,40): warning C4305: +=: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\Graph.cpp(123,20): warning C4244: +=: преобразование "_Ty" в "int", возможна потеря данных
+          with
+          [
+              _Ty=float
+          ]
+  Graph.vcxproj -> C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\x64\Debug\Graph.exe

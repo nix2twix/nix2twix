@@ -1,0 +1,176 @@
+Пример 1
+-----------------
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+        int i, a[6], s = 0; 
+        float sred;
+        for (i = 0; i < 6; i++)
+        {
+            cout << "Vvedite element N" << i << ":";
+            cin >> a[i];
+            s += a[i];
+        }
+        sred = (float) s / 6;
+        cout << "Srednee znachenie v massive: " << sred << "\n";
+        return 0;
+
+}
+
+---------------------
+Пример 2
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, * ip, N, S = 0;
+    setlocale(LC_ALL, "Russian");
+    cin >> N;
+    ip = new int[N];
+    if (ip != NULL)
+    {
+        cout << "Массив создан успешно. \n";
+        for (i = 0; i < N; i++)
+        {
+            cout << "Введите " << i << "-й элемент: ";
+            cin >> *(ip + i);
+            S += ip[i];
+        }
+        cout << "Сумма элементов: " << S << "\n";
+        delete ip;
+    }
+    else cout << "Ошибка выделения динамической памяти! \n";
+    return 0;
+}
+
+-------------
+Пример 3 вар 1
+
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+int i, j, * ip, N, M, S = 0;
+cin >> N; cin >> M; // запрашиваем размеры массива
+ip = new int[N * M]; // выделение памяти
+if (ip != NULL)
+{
+cout << "\n********** Massiv ********** \n";
+srand((unsigned)time(NULL));
+for (j = 0; j < M; j++)
+{
+for (i = 0; i < N; i++)
+{
+*(ip + i + j * N) = rand() % 100;
+cout << *(ip + i + j * N) << " ";
+S += *(ip + i + j * N);//или можно так: ip[i+j*N];
+}
+cout << "\n";
+}
+cout << "\nSumma: " << S << "\n";
+delete[] ip;
+}
+else cout << "Error ! \n";
+return 0;
+}
+
+
+
+
+вар 2 (уже изменённый)
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int i, j, ** ip, N, M, S = 0, ss = 0, max = -100, mem = 0;
+        cin >> N; cin >> M; // запрашиваем размеры массива
+    ip = new int* [M]; // выделение памяти под указатели на строки
+    if (ip != NULL)
+    {
+        cout << "\n********** Массив ********** \n";
+        srand((unsigned)time(NULL));
+        for (j = 0; j < M; j++)
+        {
+            ip[j] = new int[N]; // выделение памяти под очередную строку
+            for (i = 0; i < N; i++)
+            {
+                ip[j][i] = rand() % 100;
+                cout << ip[j][i] << " ";
+                S += ip[j][i];  
+            }
+            cout << "\n";
+        }
+
+        for (i = 0; i < N; i++)  //проход по столбцам
+        {
+            ss = 0;
+        for (j = 0; j < M; j++)
+        {
+                ss += ip[j][i];
+                if (ss > max) { max = ss; mem = i; }
+            }
+        }
+
+        cout << "\nСумма всех элементов " << S << "\n";
+        cout << "Максимальная сумма по столбцам " << max << ", находится в столбце " << mem << " (при отсчёте столбцов с 0)\n";
+        // удаление двумерного динамического массива
+        for (j = 0; j < M; j++)
+            delete[]ip[j];
+    }
+    else cout << "Error ! \n";
+    return 0;
+}
+
+
+//////////////////////альтернативный вариант с указателями
+
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+	int i, j, * ip, N, M, S = 0, ss=0;
+	cin >> N; cin >> M; // запрашиваем размеры массива
+	ip = new int[N * M]; // выделение памяти
+	setlocale(LC_ALL, "Russian");
+	if (ip != NULL)
+	{
+		cout << "\n********** Massiv ********** \n";
+		srand((unsigned)time(NULL));
+		for (j = 0; j < M; j++)
+		{
+			for (i = 0; i < N; i++)
+			{
+				*(ip + i + j * N) = rand() % 11;
+				cout << *(ip + i + j * N) << " ";
+				S += *(ip + i + j * N);
+			}
+			cout << "\n";
+		}
+		cout << "\nSumma: " << S << "\n";
+
+		for (i = 0; i < N; i++)
+		{
+			ss = 0;
+			for (j = 0; j < M; j++)
+			{
+			ss += *(ip + i + j * N);
+			}
+			cout << "Сумма по столбцу номер " << i << " равнa " << ss << "\n";
+		}
+
+		delete[] ip;
+	}
+	else cout << "Error ! \n";
+	return 0;
+}

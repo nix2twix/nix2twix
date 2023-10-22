@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RjQwuUkINUe+pv9xa0izRN9cdWh/xeb3rd6PenFICIxz33IeKBCmstnoMBGBtzmpCeYMzPikEuNHUlEaFXGlcQ==",
+  "success": true,
+  "projectFilePath": "D:\\WORK\\TULSU\\2 КУРС\\ПСЗИ\\ЛР2\\BindingToSoftwareApp\\BindingToSoftwareApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Вика\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Вика\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

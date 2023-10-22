@@ -1,0 +1,125 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <windows.h>
+#include <algorithm>
+using namespace std;
+
+string ReadStringFromMyFile() //посимвольный ввод
+{
+	ifstream input("input.txt");
+	char symbol;
+	string line;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	return line;
+}
+
+vector <string> SplitWords(string lines)
+{
+	string currentWord;
+	vector <string> wordsArray;
+	for (int i = 0; i < lines.length(); i++)
+	{
+		if (lines[i] != ' '
+			&& lines[i] != '.'
+			&& lines[i] != ','
+			&& lines[i] != '\n'
+			&& lines[i] != '\t'
+			&& lines[i] != '('
+			&& lines[i] != ')'
+			&& lines[i] != '!') currentWord.push_back(lines[i]);
+		else
+		{
+			if (!currentWord.empty()) wordsArray.push_back(currentWord);
+			currentWord.clear();
+		}
+	}
+	return wordsArray;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int passengersCount, boxCount;
+	string line;
+	char symbol;
+
+	ofstream output("output.txt");
+	ifstream input("input.txt");
+
+	input >> passengersCount >> boxCount;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	vector <string> lines = SplitWords(line);
+
+	vector <string> surnames;
+	vector <pair <string, int>> result(passengersCount,make_pair("name", -1));
+	vector <string> timeIn;
+	vector <string> timeOut;
+	vector <bool> boxIsFree(boxCount, true);
+
+	for (int i = 0; i < lines.size(); i+=3)
+	{
+		surnames.push_back(lines[i]);
+		string timeToIn = lines[i + 1].substr(0,2) + lines[i+1].substr(3,2);
+		timeIn.push_back(timeToIn);
+		string timeToOut = lines[i + 2].substr(0, 2) + lines[i + 2].substr(3, 2);
+		timeOut.push_back(timeToOut);
+	}
+
+	boxIsFree[0] = false; 
+	result[0].first = surnames[0];
+	result[0].second = 0;
+	output << result[0].first << " занял ячейку номер: " << result[0].second << "\n";
+	cout << result[0].first << " занял ячейку номер: " << result[0].second << "\n";
+
+	for (int i = 1; i < passengersCount; i++)
+	{
+		if (i <= boxCount) //ячеек больше, чем пассажиров
+		{
+				//найти ячейку, время освобождения которой меньше текущей
+				int j = 0;
+				while (j < boxCount)
+				{
+					if (boxIsFree[j] == true) break;
+					if (boxIsFree[j] == false & timeOut[j] < timeIn[i])
+					{	
+						output << "--- Ячейка номер " << j << " освободилась.\n";
+						cout << "--- Ячейка номер " << j << " освободилась.\n";
+						boxIsFree[j] = true;
+						break;
+					}
+					j++;
+				}
+				result[i].first = surnames[i];
+				result[i].second = j;
+				timeIn[j] = timeIn[i];
+				timeOut[j] = timeOut[i];
+				boxIsFree[j] = false;
+				output << result[i].first << " занял ячейку номер: " << result[i].second << "\n";
+				cout << result[i].first << " занял ячейку номер: " << result[i].second << "\n";
+
+		
+		}
+		else //все ячейки заняты
+		{
+			result[i].first = surnames[i];
+			result[i].second == -1;
+			output << "Для пассажира по фамилии " << result[i].first << " места не нашлось.\n";
+			cout << "Для пассажира по фамилии " << result[i].first << " места не нашлось.\n";
+		}
+	}
+	output.close();
+	return 0;
+}
+

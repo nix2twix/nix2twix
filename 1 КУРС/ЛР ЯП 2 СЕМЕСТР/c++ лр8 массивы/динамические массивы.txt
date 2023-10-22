@@ -1,0 +1,74 @@
+------------------------
+одномерный
+
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+using namespace std;
+int main()
+
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n;
+	cin >> n;
+	int *a = new int [n];
+
+	if (a != NULL)
+	{
+		cout << "\n********** Массив создан успешно ********** \n";
+		srand((unsigned)time(NULL));
+
+		for (int i = 0; i < n; i++)
+		{
+
+				a[i] = rand()%11;
+				cout << a[i] << " ";
+		}
+
+	}
+	else cout << "Ошибка";
+
+	delete[]a;
+	return 0;
+}
+
+------------------------
+двумерный 
+
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+using namespace std;
+int main()
+
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n;
+	cin >> n;
+	int **a = new int* [n];
+	for (int i = 0; i < n; i++)
+		a[i] = new int[n];
+
+	if (a != NULL)
+	{
+		cout << "\n********** Массив создан успешно ********** \n";
+		srand((unsigned)time(NULL));
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				a[i][j] = rand()%11;
+				cout << a[i][j] << " ";
+			}
+			cout << "\n";
+		}
+
+	}
+	else cout << "Ошибка";
+	for (int i = 0; i < n; i++)
+	delete[]a[i];
+	delete[]a;
+	return 0;
+}
+

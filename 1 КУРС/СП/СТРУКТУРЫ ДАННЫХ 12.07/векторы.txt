@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+#include <vector> 
+using namespace std;
+int main()
+{
+	//вектор (контейнер)
+	vector <int> num = {1, 5, 2};
+	num.push_back(10); //добавить значение 5 в конец
+	num.push_back(4);
+	cout << "size: " << num.size() << "\n"; //размер вектора (число элем)
+	//v1.resize(20); установить размер
+	v1.resize(21,1); //инициализировать 1 пустые места
+	//for (int x:num) cout << x << " "; проход по всем элементам структуры данных (вектору)
+	// тип данных переменной x, принимающей знчение элементов, должен совпадать
+	for (auto x: num) cout << x << " "; //выбирается по типу контейнера
+	cout << "\n";
+	for (int i = 0; i < num.size(); i++) cout << num[i] << " "; //перебор индексов! а не элементов
+	auto iter = v1.begin(); 
+	while (iter != v1.end())
+	{
+		cout << *iter << " ";
+		iter++;
+	}
+	return 0;
+}

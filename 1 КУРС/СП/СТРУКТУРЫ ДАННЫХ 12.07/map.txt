@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector> 
+#include <set>
+#include <map>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	map <string, int> m1 = { {"Ivanov", 1}, {"Tolstoi", 2}}; //пара ключ(смысл) и значение
+	m1.insert({"Dostoevskiy", 5});
+	string author = "Chehov";
+	int count = 6;
+	m1.insert({ author, count });
+	for (auto x : m1) cout << x.first << " " << x.second << "\n";
+	return 0;
+}	

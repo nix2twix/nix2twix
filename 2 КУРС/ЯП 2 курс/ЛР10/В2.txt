@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int SymbolCounter(char symbolToCount, string line)
+{
+	int count = 0;
+	int i = line.length()-3;
+	while (line[i] != '.' && line[i])
+	{
+		if (line[i] == symbolToCount) count++;
+		i--;
+	}
+	return count;
+}
+
+string ReadStringFromMyFile()
+{
+	ifstream input("input.txt");
+	char symbol;
+	string line;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	return line;
+}
+
+int main()
+{
+	string line = ReadStringFromMyFile(); 
+	char symbol = 'а';
+
+	setlocale(LC_ALL, "RUSSIAN");
+	printf("Количество букв %c: %d", symbol, SymbolCounter(symbol, line));
+}

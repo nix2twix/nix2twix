@@ -1,0 +1,6 @@
+﻿  task4.cpp
+C:\Users\Вика\Desktop\курсач\task4\task4.cpp(34,24): warning C4244: +=: преобразование "__int64" в "long", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\task4\task4.cpp(51,62): warning C4244: =: преобразование "__int64" в "long", возможна потеря данных
+C:\Users\Вика\Desktop\курсач\task4\task4.cpp(17,102): warning C4101: l: неиспользованная локальная переменная
+C:\Users\Вика\Desktop\курсач\task4\task4.cpp(17,105): warning C4101: r: неиспользованная локальная переменная
+  task4.vcxproj -> C:\Users\Вика\Desktop\курсач\task4\x64\Debug\task4.exe

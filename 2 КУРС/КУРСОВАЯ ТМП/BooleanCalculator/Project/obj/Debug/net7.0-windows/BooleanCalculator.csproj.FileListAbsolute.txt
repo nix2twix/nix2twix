@@ -1,0 +1,17 @@
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.csproj.AssemblyReference.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.AssemblyInfoInputs.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.AssemblyInfo.cs
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.csproj.CoreCompileInputs.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\bin\Debug\net7.0-windows\BooleanCalculator.exe
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\bin\Debug\net7.0-windows\BooleanCalculator.deps.json
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\bin\Debug\net7.0-windows\BooleanCalculator.runtimeconfig.json
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\bin\Debug\net7.0-windows\BooleanCalculator.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\bin\Debug\net7.0-windows\BooleanCalculator.pdb
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.csproj.GenerateResource.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\refint\BooleanCalculator.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.pdb
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanCalculator.genruntimeconfig.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\ref\BooleanCalculator.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ТМП\BooleanCalculator\Project\obj\Debug\net7.0-windows\BooleanAlgebra.Form.resources

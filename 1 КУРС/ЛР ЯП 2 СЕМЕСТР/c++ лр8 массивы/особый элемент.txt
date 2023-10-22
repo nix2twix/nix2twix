@@ -1,0 +1,55 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int i, j, ** ip, N, M, ss = 0, k = 0, os=0;
+    cin >> N; cin >> M; // запрашиваем размеры массива
+    ip = new int* [M]; // выделение памяти под указатели на строки
+    if (ip != NULL)
+    {
+        cout << "\n********** Массив ********** \n";
+        srand((unsigned)time(NULL));
+        for (j = 0; j < M; j++)
+        {
+            ip[j] = new int[N]; // выделение памяти под очередную строку
+            for (i = 0; i < N; i++)
+            {
+                ip[j][i] = rand() % 20;
+                cout << ip[j][i] << " ";
+            }
+            cout << "\n";
+        }
+
+        for (i = 0; i < N; i++)
+        {
+            ss = 0;
+            for (j = 0; j < M; j++)  //проход по столбцам
+            {
+                    ss = ss + ip[j][i];
+            }
+            cout << "-----> Текущий столбец " << i << "\n";
+            cout << "Сумма по столбцу равна " << ss << "\n";
+
+            for (int t = 0; t < M; t++)
+            {
+                if (ip[t][i] > ss - ip[t][i]) 
+                {
+                    os++;
+                    cout << "Имеется особый элемент " << ip[t][i] << "\n";
+                }
+            }
+            cout << "\n";
+          
+        }
+
+        cout << "\nЧисло особых элементов " << os << "\n";
+        // удаление двумерного динамического массива
+        for (j = 0; j < M; j++)
+            delete[]ip[j];
+    }
+    else cout << "Error ! \n";
+    return 0;
+}

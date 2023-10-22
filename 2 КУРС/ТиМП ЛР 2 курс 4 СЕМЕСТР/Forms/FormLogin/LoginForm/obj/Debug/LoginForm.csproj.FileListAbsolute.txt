@@ -1,0 +1,14 @@
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\bin\Debug\LoginForm.exe.config
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\bin\Debug\LoginForm.exe
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\bin\Debug\LoginForm.pdb
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\bin\Debug\Newtonsoft.Json.dll
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\bin\Debug\Newtonsoft.Json.xml
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.csproj.AssemblyReference.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.csproj.SuggestedBindingRedirects.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.Properties.Resources.resources
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.csproj.GenerateResource.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.csproj.CoreCompileInputs.cache
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.csproj.CopyComplete
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.exe
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.pdb
+D:\WORK\2 КУРС\ТиМП ЛР 2 курс 4 СЕМЕСТР\Forms\FormLogin\LoginForm\obj\Debug\LoginForm.SignUpForm.resources

@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	srand((unsigned)time(NULL));
+	int **a, **s, m, n, k = 0,sum_g=0,sum_v=0;
+	cout << "Введите размеры массива MxN: "; cin >> m >> n;
+	a = new int*[m];
+	s = new int*[m+1];
+	for (int i = 0; i < m; i++) a[i] = new int[n];
+	for (int i = 0; i < m+1; i++) s[i] = new int[n+1];
+
+	for (int i = 0; i < n+1; i++) s[0][i] = 0;
+	for (int j = 0; j < m+1; j++) s[j][0] = 0;
+		
+	for (int i = 0; i < n; i++)
+	{
+		sum_g = 0;
+		for (int j = 0; j < m; j++)
+		{
+			a[j][i] = rand() % 10;
+			cout << setw(3) << a[j][i];
+			sum_g += a[j][i];
+			s[j+1][i+1] = sum_g+s[j+1][i];
+		}
+		cout << "\n";
+	}
+	cout << "\nМассив префиксных сумм данного массива:\n";
+
+	for (int i = 0; i < n + 1; i++)
+	{
+		for (int j = 0; j < m + 1; j++)
+		{
+			cout << setw(3) << s[j][i];
+		}
+		cout << "\n";
+	}
+	return 0;
+}
+

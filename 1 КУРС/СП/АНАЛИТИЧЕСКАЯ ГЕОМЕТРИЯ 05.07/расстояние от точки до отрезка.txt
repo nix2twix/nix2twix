@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	double eps = 1e-8;
+	double x1, y1, x2, y2, x3, y3, kos_MP2MP1, modl_P1P2, r, skl_P1MP1P2, skl_P2P1P2M; //P1(x1,y1) P2(x2,y2) M(x3,y3)
+	cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+	skl_P1MP1P2 = (x3 - x1) * (x2 - x1) + (y2 - y1) * (y3 - y1); //P1M (x3-x1, y3-y1),	P2M (x3-x2, y3-y2)
+	skl_P2P1P2M = (x3 - x2) * (x1 - x2) + (y3 - y2) * (y1 - y2); //P2P1(x1-x2, y1-y2), 
+	if (skl_P1MP1P2 < eps)
+	{
+		r = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1)); //[P1M]
+	}
+	else if (skl_P2P1P2M < eps)
+	{
+		r = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2)); //[P2M]
+	} else
+	{
+		kos_MP2MP1 = (x2 - x3) * (y1 - y3) - (x1 - x3) * (y2 - y3);
+		modl_P1P2 = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+		r = abs(kos_MP2MP1 / modl_P1P2);
+	}
+	cout << fixed << setprecision(8) << r;
+	return 0; 
+}

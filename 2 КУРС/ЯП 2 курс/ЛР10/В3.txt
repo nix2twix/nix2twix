@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <windows.h>
+#include <vector>
+using namespace std;
+
+int WordsCounter(string word, string line)
+{
+	int count = 0;
+	string currentWord;
+	vector <string> words;
+	for (int i = 0; i < line.length(); i++)
+	{
+		if (line[i] != ' ' && line[i] != '\n' && line[i] != '.')
+			currentWord.push_back(line[i]);
+		else currentWord.clear();
+		if (currentWord == word) count++;
+	}
+	return count;
+}
+
+string ReadStringFromMyFile()
+{
+	ifstream input("input.txt");
+	char symbol;
+	string line;
+	while (!input.eof())
+	{
+		input.get(symbol);
+		line += symbol;
+	}
+	input.close();
+	return line;
+}
+
+int main()
+{
+	string line = ReadStringFromMyFile(); 
+	string word = "";
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251); //для вывода русских слов
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << "Введите слово для поиска в файле: ";
+	getline(cin >> ws, word);
+
+	cout << "Количество слов " << word << " в файле: " << WordsCounter(word, line);
+	return 0;
+}

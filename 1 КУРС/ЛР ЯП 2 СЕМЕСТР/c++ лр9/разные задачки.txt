@@ -1,0 +1,171 @@
+include <iostream>
+using namespace std;
+Пусть дано число n.Будем заменять его на число n / 2, если n четно, и на 3n + 1, если n нечетно.
+	Существует гипотеза(не доказанная и не опровергнутая до сих пор), что с какого бы числа мы ни начали,
+	в результате цепочки таких замен мы всегда можем прийти к числу 1.
+	Ваша функция должна принимать n в качестве параметра и возвращать число замен, приводящих к 1.
+void func(int n)
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int k=0;
+	printf("Начальное значение: %d", n);
+	do
+	{
+		if (n % 2 == 0) n /= 2;
+		else n = 3 * n + 1;
+		printf("\n%d", n);
+		k++;
+	} while (n != 1);
+	printf("\nЕдиница была получена после %d итераций.", k);
+	return;
+}
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n;
+	cout << "Введите число n: "; cin >> n;
+	func(n);
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+/*Два простых числа называются близнецами, если они отличаются друг от друга на 2. 
+Например, 41 и 43 – простые числа-близнецы. 
+Найти все пары простых чисел-близнецов, не превышающих N. 
+(Определить функцию, позволяющую распознавать простые числа.)*/
+bool simple(int n)
+{
+	bool x;
+	int count=0;
+	for (int i = 2; i <= sqrt(n); i++)
+	{
+		if (n % i == 0) count++;
+	}
+	if (count == 0) x = true;
+	else x = false;
+	return x;
+}
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n, N, x, y, count=0;
+	cout << "Введите число N: "; cin >> N;
+	for (int i = 1; i <= N; i++)
+	{
+		n = i;
+		if ((simple(n)) == true)
+		{
+			if (count < 1)
+			{
+				x = n;
+				count++;
+			}
+			else
+			{
+				y = n;
+				count = 0;
+				printf("\nПодходящая пара: %d и %d", x, y);
+			}
+		}
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <algorithm> //для сорта
+#include <stdlib.h>
+#include <iomanip>
+using namespace std;
+/*Определить функцию для слияния массивов, которая принимает в качестве аргументов два упорядоченных 
+по возрастанию массива и возвращает указатель на новый массив, полученный путем объединения (слияния) двух исходных.
+Разработать программу, использующую составленную функцию.*/
+
+int* sl(int *a, int *b, int size1, int size2)
+{
+	int i = 0, j = 0, *c = new int[size1+size2];
+	for (int k = 0; k < size1 + size2; k++)
+	{
+		if (i == size1)
+		{   c[k] = b[j];
+			j++;
+		}
+		else
+		{   if (j == size2)
+			{   c[k] = a[i];
+				i++;
+			}
+			else
+			{   if (a[i] <= b[j])
+				{   c[k] = a[i];
+					i++;
+				}
+				else
+				{   if (a[i] > b[j])
+					{   c[k] = b[j];
+						j++;
+					}
+				}
+			}
+		}
+	}
+	return c;
+}
+void printarray(int *a, int size)
+{	
+	for (int i = 0; i < size; i++)	cout << a[i] << setw(3);
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	setlocale(LC_ALL, "RUSSIAN");
+	int *x, *y, *z, sizex, sizey;
+	cout << "Введите размер первого массива: "; cin >> sizex;
+	cout << "Введите размер второго массива: "; cin >> sizey;
+	x = new int[sizex];
+	y = new int[sizey];
+	for (int i = 0; i < sizex; i++) x[i] = -10+rand() % 20;
+									sort(x, x + sizex);
+	for (int i = 0; i < sizey; i++) y[i] = -10+rand() % 20;
+									sort(y, y + sizey);
+	
+	printf("Массивы до слияния:\n");
+	printarray(x, sizex);
+	cout << "\n";
+	printarray(y, sizey);
+	z = sl(x, y, sizex, sizey);
+	printf("\nМассив после слияния:"); printarray(z,sizex+sizey);
+	delete[]x;
+	delete[]y;
+	delete[]z;
+	return 0;
+}

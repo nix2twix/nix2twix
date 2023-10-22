@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+//определение вспомогательной функции
+float Cub(float f) {return f*f*f;}
+int main()
+{int x,y; // объявляем переменные
+cin>>x; // вводим х
+y=Cub(x); //вызываем функцию для вычисления третьей степени числа х
+cout<<"\nx^3 = "<< y;
+cout<<"\nx^3 = "<< Cub(x);
+return 0;
+}
+
+---------------------
+#include <iostream>
+using namespace std;
+//Первый вариант функции Sq
+int Sq(int arg)
+{
+	return arg * arg;
+}
+//Второй вариант функции Sq
+double Sq(double arg)
+{return arg * arg; }
+int main(void)
+{
+	int x = 11;
+	double y = 3.1416;
+	printf("%d v kvdrate = %d, %f v kvadrate = %f\n", x, Sq(x), y, Sq(y));
+	return 0;
+}
+-------------------------
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+void print(int i) {printf("%d   ", i);}
+void print(double x) {printf("%f   ", x);}
+void print(const char s[]) { printf("%s   ", s); }
+int main()
+{int j=5;
+float e=2.7183;
+double pi=3.1415926;
+print(j); print(e); print(pi);
+print("Hello All!");
+return 0;
+}

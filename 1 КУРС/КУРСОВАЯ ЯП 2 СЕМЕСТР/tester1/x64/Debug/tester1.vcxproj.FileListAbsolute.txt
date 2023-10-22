@@ -1,0 +1,3 @@
+C:\Users\Вика\Desktop\курсач\задача 1\tester1\x64\Debug\tester1.exe
+C:\Users\Вика\Desktop\курсач\Задача 1. Таверна Доля ангелов\tester1\x64\Debug\tester1.exe
+C:\Users\Вика\Desktop\курсач\tester1\x64\Debug\tester1.exe

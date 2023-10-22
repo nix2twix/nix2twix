@@ -1,0 +1,15 @@
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\bin\Debug\net7.0\TuringMachine.exe
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\bin\Debug\net7.0\TuringMachine.deps.json
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\bin\Debug\net7.0\TuringMachine.runtimeconfig.json
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\bin\Debug\net7.0\TuringMachine.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\bin\Debug\net7.0\TuringMachine.pdb
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.csproj.AssemblyReference.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.AssemblyInfoInputs.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.AssemblyInfo.cs
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.csproj.CoreCompileInputs.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\refint\TuringMachine.dll
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.pdb
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\TuringMachine.genruntimeconfig.cache
+D:\WORK\2 КУРС\КУРСОВАЯ ДМ 4 СЕМЕСТР\TuringMachine\obj\Debug\net7.0\ref\TuringMachine.dll

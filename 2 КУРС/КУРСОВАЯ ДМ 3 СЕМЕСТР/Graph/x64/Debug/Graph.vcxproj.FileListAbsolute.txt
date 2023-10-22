@@ -1,0 +1,4 @@
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\x64\Debug\Graph.exe
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\x64\Debug\Graph.vcxproj.MdMergeInputs.cache
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\x64\Debug\Graph.vcxproj.cppwinrt_plat.cache
+C:\Users\Вика\Desktop\КУРСОВАЯ ДМ\Graph\x64\Debug\Graph.vcxproj.cppwinrt_comp.cache

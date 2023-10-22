@@ -1,0 +1,51 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int n, k=1;
+	cout << "Введите длину массива: "; cin >> n;
+	int* a, * s;
+	a = new int[n];
+	s = new int[n + 1];
+	s[0] = 0;
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < n; i++)
+	{
+		a[i] = rand() % 100;
+		cout << a[i] << setw(5);
+	}
+
+	cout << "\nМассив разниц:\n";
+	int *diff = new int[n+1];
+	diff[0] = a[0];
+	diff[n] = 0;
+	for (int i = 1; i < n; i++)
+	{
+		diff[i] = a[k] - a[k-1];
+		k++;
+	}
+	for (int i = 0; i < n+1; i++)
+	{
+		cout << diff[i] << setw(5);
+	}
+
+	int l, r, x;
+	cout << "\nВведите границы диапазона, не превышающие " << n-1 <<":"; cin >> l; cin >> r;
+	cout << "\nВведите добавляемое число: "; cin >> x;
+	cout << "\nОбновленный массив:\n";
+		diff[l] += x;
+		diff[r+1] -= x;
+		for (int i = 0; i < n; i++)
+		{
+			if (i == 0)
+				a[i] = diff[i];
+			else
+				a[i] = diff[i] + a[i - 1];
+			cout << a[i] << setw(5);
+		}
+
+	return 0;
+}
