@@ -1,0 +1,206 @@
+﻿class Program
+{
+    public static void Main(string[] args)
+    {
+        // Исходные данные
+        ulong inputBlock = 4;
+        (uint L, uint R) = SplitBlock(inputBlock);
+        uint[] key = new uint[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+        uint[] substitutionTable = new uint[263]
+        {
+            252, 238, 221, 17, 207, 110, 49, 22, 251, 196, 250, 218, 35,
+	        197, 4, 77, 233, 119, 240, 219, 147, 46, 153, 186, 23, 54, 241, 187,
+	        211, 31, 235, 52, 44, 81, 234, 200, 72, 171, 242, 42, 104, 162, 253, 58, 206,
+	        204, 181, 112, 14, 86, 8, 12, 118, 18, 191, 114, 19, 71, 156, 183,
+	        189, 13, 87, 223, 245, 36, 169, 62, 168, 67, 201, 215, 121, 214, 246, 124, 34,
+	        185, 3, 224, 15, 236, 222, 122, 148, 176, 188, 220, 232, 40, 80, 78,
+	        51, 10, 74, 167, 151, 96, 115, 30, 0, 98, 68, 26, 184, 56, 130, 100, 159, 38,
+	        65, 173, 69, 70, 146, 39, 94, 85, 47, 140, 163, 165, 125, 105, 213, 149,
+	        20, 205, 95, 193, 249, 24, 101, 90, 226, 92, 239, 33, 129, 28, 60, 66, 139, 1,
+	        142, 79, 5, 132, 2, 174, 227, 106, 143, 160, 6, 11, 237, 152, 127, 212,
+	        59, 7, 88, 179, 64, 134, 172, 29, 247, 48, 55, 107, 228, 136, 217, 231, 137,
+	        225, 27, 131, 73, 76, 63, 248, 254, 141, 83, 170, 144, 202, 216, 133, 97,
+	        93, 135, 21, 161, 150, 41, 16, 123, 154, 199, 243, 145, 120, 111, 157, 158,
+	        178, 177, 50, 117, 25, 61, 255, 53, 138, 126, 109, 84, 198, 128, 195,
+	        32, 113, 103, 164, 45, 43, 9, 91, 203, 155, 37, 208, 190, 229, 108, 82, 89, 166,
+	        116, 210, 230, 244, 180, 192, 209, 102, 175, 194, 57, 75, 99, 182,
+	        252, 238, 221, 17, 207, 110, 49
+            };
+
+
+        // Зашифрование
+        Console.WriteLine("Original: " + inputBlock.ToString("X8"));
+        (uint encryptedResultL, uint encryptedResultR) = EncryptionCycle32Z(L, R, key, substitutionTable);
+        Console.WriteLine("Encrypted: " + encryptedResultL.ToString("X8") 
+            + encryptedResultR.ToString("X8"));
+
+        (L, R) = (encryptedResultL, encryptedResultR);
+        // Расшифрование
+        (uint decryptedResultL, uint decyptionResultR) = DecryptionCycle32Z(L, R, key, substitutionTable);
+        Console.WriteLine("Decrypted: " + decryptedResultL.ToString("X8") 
+            + decyptionResultR.ToString("X8"));
+
+    }
+
+    // Метод для выполнения базового цикла шифрования 32-З
+    public static (uint L, uint R) EncryptionCycle32Z(uint L, uint R, uint[] key, uint[] substitutionTable)
+    {
+        for (int i = 0; i < 32; i++)
+        {
+            uint X = key[i % key.Length];
+
+            uint encryptedL = Encryption(L, X, substitutionTable);
+            uint encryptedR = R;
+
+            L = encryptedR;
+            R = encryptedL;
+        }
+
+        return (L, R);
+    }
+
+
+    public static uint Encryption(uint dataBlock, uint key, uint[] substitutionTable)
+    {
+        (uint N1, uint N2) = SplitBlock(dataBlock); 
+
+        N1 = AdditionWithKey(N1, key);
+
+        N1 = BlockByBlockReplacement(N1, substitutionTable);
+
+        N1 = CircularShift(N1, 11, true);
+
+        N1 = BitwiseAddition(N1, N2);
+
+        return Swap(N1, N2);
+    }
+
+
+    // сдвиг влево (leftShift = true) или вправо (leftShift = false) на count битов
+    static uint CircularShift(uint number, int count, bool isShiftLeft)
+    {
+        // Проверка на то, что count находится в диапазоне [0, 31]
+        if (count < 0 || count > 31)
+        {
+            throw new ArgumentOutOfRangeException(nameof(count), 
+                "Count должен быть в диапазоне от 0 до 31");
+        }
+
+        if (isShiftLeft)
+        {
+            return (number << count) | (number >> (32 - count));
+        }
+        else
+        {
+            return (number >> count) | (number << (32 - count));
+        }
+    }
+    /* Пример использования:
+        uint number = 2;
+        int count = 3; 
+
+        Console.WriteLine("Исходное число: " + Convert.ToString(number, 2).PadLeft(32, '0'));
+
+        uint resultLeftShift = CircularShift(number, count, isShiftLeft: true);
+        Console.WriteLine("Циклический сдвиг влево на " + count + " битов: " + Convert.ToString(resultLeftShift, 2).PadLeft(32, '0'));
+
+        uint resultRightShift = CircularShift(number, count, isShiftLeft: false);
+        Console.WriteLine("Циклический сдвиг вправо на " + count + " битов: " + Convert.ToString(resultRightShift, 2).PadLeft(32, '0'));
+    */
+
+    // Метод для разделения 64-битового блока на две 32-битовых половины:
+    public static (uint N1, uint N2) SplitBlock(ulong N)
+    {
+        uint N1 = (uint)((N >> 32) & 0xFFFFFFFF);
+        uint N2 = (uint)(N & 0xFFFFFFFF);
+        return (N1, N2);
+    }
+
+    // Сложение с ключом
+    public static uint AdditionWithKey(uint N1, uint X) => N1 + X;
+
+    // Побитовое сложение
+    public static uint BitwiseAddition(uint shiftedValue, uint N2) => shiftedValue ^ N2;
+
+    // Поблочная замена
+    public static uint BlockByBlockReplacement(uint value, uint[] substitutionTable)
+    {
+        uint result = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            uint block = (value >> (4 * i)) & 0xF; // Извлекаем каждый 4-битовый блок
+            uint substitutedBlock = substitutionTable[i * 16 + block]; // Замена из таблицы замен
+            result |= substitutedBlock << (4 * i); // Обновляем результат
+        }
+        return result;
+    }
+
+    // Обмен (младшая часть преобразуемого блока сдвигается на место старшей,
+    // а на ее место помещается результат выполнения предыдущего шага)
+    public static uint Swap(uint shiftedValue, uint shiftedN1)
+    {
+        return (shiftedN1 << 32) | shiftedValue;
+    }
+
+    public static (uint L, uint R) DecryptionCycle32Z(uint L, uint R, uint[] key, uint[] substitutionTable)
+    {
+        for (int i = 31; i >= 0; i--) // Идем в обратном порядке
+        {
+            uint X = key[i % key.Length];
+
+            uint decryptedR = R;
+            uint decryptedL = Decryption(L, X, substitutionTable);
+
+            L = decryptedL;
+            R = decryptedR;
+        }
+
+        return (L, R);
+    }
+
+    public static uint Decryption(uint dataBlock, uint key, uint[] substitutionTable)
+    {
+        (uint N1, uint N2) = SplitBlock(dataBlock);
+
+        N1 = BitwiseAddition(N1, N2); 
+
+        N1 = CircularShift(N1, 11, false); 
+
+        N1 = BlockByBlockReplacementInverse(N1, substitutionTable); 
+
+        N1 = AdditionWithKey(N1, key);
+
+        return Swap(N1, N2);
+    }
+
+    public static uint BlockByBlockReplacementInverse(uint value, uint[] substitutionTable)
+    {
+        uint result = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            uint block = (value >> (4 * i)) & 0xF;
+            uint substitutedBlock = substitutionTable[i * 16 + block];
+            result |= substitutedBlock << (4 * i);
+        }
+        return result;
+    }
+
+    public static uint ImprintGenerationCycle16Z(uint input, uint[] key, uint[] substitutionTable)
+    {
+        uint result = input;
+
+        for (int i = 0; i < 16; i++)
+        {
+            uint X = key[i % key.Length]; 
+
+            result = Encryption(result, X, substitutionTable);
+
+            // Обмен содержимым старшей и младшей половин данных
+            (uint N1, uint N2) = SplitBlock(result);
+            result = (N1 << 32) | N2;
+        }
+
+        return result;
+    }
+
+}

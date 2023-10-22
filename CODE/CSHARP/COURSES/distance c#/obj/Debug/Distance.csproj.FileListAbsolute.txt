@@ -1,0 +1,10 @@
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\bin\Debug\Distance.exe.config
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\bin\Debug\Distance.exe
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\bin\Debug\Distance.pdb
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\bin\Debug\TestingRoom.dll
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.csproj.AssemblyReference.cache
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.csproj.SuggestedBindingRedirects.cache
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.csproj.CoreCompileInputs.cache
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.csproj.CopyComplete
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.exe
+C:\Users\Вика\Documents\CSHARP\courses\distance c#\obj\Debug\Distance.pdb

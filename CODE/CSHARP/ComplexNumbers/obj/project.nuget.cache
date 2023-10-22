@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9CVLErdV4ok6IjZ1m8Wx77flgXe+MVenIXMcfRTUGcJwL27LgXjezQ0KFWMJNpi6RdDXotnb7+jUfCJ7il5Ylg==",
+  "success": true,
+  "projectFilePath": "D:\\WORK\\CODE\\CSHARP\\ComplexNumbers\\ComplexNumbers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Вика\\.nuget\\packages\\stylecop.msbuild\\6.2.0\\stylecop.msbuild.6.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

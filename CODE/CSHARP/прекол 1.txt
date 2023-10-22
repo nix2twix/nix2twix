@@ -1,0 +1,67 @@
+    class Matrix
+    {
+        private static Random rnd = new Random(); 
+        private class FallingLine
+        {
+            private readonly string s = "";
+            private int top;
+            private int left;
+
+            public FallingLine(int height)
+            {
+                while (s.Length < height)
+                {
+                    char chr = (char) rnd.Next(128);
+                    if (!Char.IsControl(chr) && !Char.IsWhiteSpace(chr))
+                        s += chr;
+                }
+                Reset();
+            }
+
+            public bool Update()
+            {
+                if (top < s.Length)
+                {
+                    Console.SetCursorPosition(left, top);
+                    Console.Write(s[top]);
+                }
+                else
+                {
+                    Console.SetCursorPosition(left, top % s.Length);
+                    Console.Write(' ');
+                }
+
+                return ++top == 2 * s.Length;
+            }
+
+            public void Reset()
+            {
+                top = 0;
+                left = rnd.Next(Console.WindowWidth);
+            }
+        }
+
+        public static void Main()
+        {
+            Console.CursorVisible = false;
+            Console.ForegroundColor = ConsoleColor.Green;
+            var lines = new System.Collections.Generic.List<FallingLine>();
+            var needsAdding = true;
+            while(true)
+            {
+                if (needsAdding)
+                    lines.Add(new FallingLine(Console.WindowHeight - 1));
+                
+                foreach (var line in lines)
+                {
+                    if (line.Update())
+                    {
+                        line.Reset();
+                        needsAdding = false;
+                    }
+                }
+
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+    }

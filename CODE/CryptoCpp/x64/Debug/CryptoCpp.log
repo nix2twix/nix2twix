@@ -1,0 +1,6 @@
+﻿  Lab4_2.cpp
+D:\WORK\CODE\CryptoCpp\Lab4_2.cpp(14,40): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\CODE\CryptoCpp\Lab4_2.cpp(14,24): warning C4244: инициализация: преобразование "std::streamoff" в "const int", возможна потеря данных
+D:\WORK\CODE\CryptoCpp\Lab4_2.cpp(48,40): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\CODE\CryptoCpp\Lab4_2.cpp(48,24): warning C4244: инициализация: преобразование "std::streamoff" в "const int", возможна потеря данных
+  CryptoCpp.vcxproj -> D:\WORK\CODE\CryptoCpp\x64\Debug\CryptoCpp.exe

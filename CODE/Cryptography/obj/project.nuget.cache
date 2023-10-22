@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "+iqy8v0wRAU2HoDN1fpdrJ2BSy/2GLpElAYFXaoWRhN9qnMlGBgoTHWaBStb2ret2qEwXBEeBGn+Nm8zjTDBjQ==",
+  "success": true,
+  "projectFilePath": "D:\\WORK\\CODE\\Cryptography\\Cryptography.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Вика\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0-rc.1.23419.4\\system.text.encoding.codepages.8.0.0-rc.1.23419.4.nupkg.sha512"
+  ],
+  "logs": []
+}

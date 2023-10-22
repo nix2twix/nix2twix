@@ -1,0 +1,121 @@
+01|_
+6
+0
+6
+0 0 1 R 0
+0 1 0 R 0
+0 | | R 0
+0 _ _ N 1
+1 0 1 L 1
+1 1 0 L 2
+1 | _ R 5
+1 _ _ L 1
+2 0 0 L 2
+2 1 1 L 2
+2 | | L 3
+2 _ _ N 2
+3 0 1 R 4
+3 1 0 L 3
+3 | | N 3
+3 _ 1 R 4
+4 0 0 R 4
+4 1 1 R 4
+4 | | R 4
+4 _ _ L 1
+5 0 0 N 5
+5 1 _ R 5
+5 | | N 5
+5 _ _ N 6
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <map>
+
+using namespace std;
+
+// Структура для хранения инструкций машины Тьюринга
+struct Instruction {
+    char write_symbol;
+    char move_direction;
+    int next_state;
+};
+
+// Вывод текущего состояния ленты
+void printTape(vector<char> tape)
+{
+    cout << "Current tape: ";
+    for (char symbol : tape) {
+        cout << symbol;
+    } cout << "\n";
+}
+
+int main() {
+    string input_number;
+    cout << "Enter input number: ";
+    getline(cin, input_number);
+
+    vector<char> tape;
+    for (char symbol : input_number) {
+        tape.push_back(symbol);
+    }
+
+    string alphabet;
+    int num_states;
+    int start_state;
+    int halt_state;
+    map<pair<int, char>, Instruction> instructions;
+
+    // Чтение входных данных из файла input.txt
+    ifstream input_file("input.txt");
+    input_file >> alphabet >> num_states >> start_state >> halt_state;
+
+    // Чтение инструкций из файла input.txt и сохранение их в таблицу инструкций
+    int state;
+    char symbol;
+    Instruction instr;
+    while (input_file >> state >> symbol >> instr.write_symbol >> instr.move_direction >> instr.next_state) {
+        instructions[{state, symbol}] = instr;
+    }
+
+    // Закрытие файла input.txt
+    input_file.close();
+
+    // Инициализация начального состояния машины Тьюринга
+    int current_state = start_state;
+    int head_position = 0;
+
+    // Цикл эмуляции работы машины Тьюринга
+    while (current_state != halt_state) {
+        char current_symbol = tape[head_position];
+        Instruction instr = instructions[{current_state, current_symbol}];
+        tape[head_position] = instr.write_symbol;
+
+        if (instr.move_direction == 'L') {
+            if (head_position == 0) {
+                tape.insert(tape.begin(), alphabet[0]);
+            }
+            else {
+                head_position--;
+            }
+        }
+        else if (instr.move_direction == 'R') {
+            head_position++;
+            if (head_position == tape.size()) {
+                tape.push_back(alphabet[0]);
+            }
+        }
+        printTape(tape);
+        current_state = instr.next_state;
+    }
+
+    // Вывод результата работы машины Тьюринга на экран
+    cout << "Result: ";
+    for (char symbol : tape) {
+        if (symbol != '_') cout << symbol;
+    }
+    cout << endl;
+
+    return 0;
+}

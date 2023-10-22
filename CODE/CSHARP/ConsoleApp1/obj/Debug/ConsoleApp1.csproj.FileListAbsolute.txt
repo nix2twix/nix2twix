@@ -1,0 +1,10 @@
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Вика\Documents\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Вика\Documents\CODE\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Вика\Documents\CODE\CSHARP\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

@@ -1,0 +1,12 @@
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\names.txt
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\Names.exe.config
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\Names.exe
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\Names.pdb
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\ZedGraph.dll
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\bin\Debug\ZedGraph.xml
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.csproj.SuggestedBindingRedirects.cache
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.csproj.CoreCompileInputs.cache
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.csproj.CopyComplete
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.exe
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.pdb
+C:\Users\Вика\Documents\CSHARP\courses\histogramm c#\obj\Debug\Names.csproj.AssemblyReference.cache

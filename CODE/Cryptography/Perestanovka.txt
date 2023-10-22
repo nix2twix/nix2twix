@@ -1,0 +1,144 @@
+ static void M(string[] args)
+    {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        string path = @"C:\Users\Вика\Desktop\test.txt";
+        byte[] data = File.ReadAllBytes(path);
+        int rowCount = 3;       //строки
+        int columnCount = 6;    //столбцы
+
+        Console.Write("Write the key in 123456 format: ");
+        string key = Console.ReadLine();  //ключ
+
+        using (BinaryWriter decryptedOutput = new BinaryWriter(
+         new FileStream(@"C:\Users\Вика\Desktop\decrypted.txt", FileMode.Create), Encoding.UTF8))
+        {
+            //ДЕШИФРОВАНИЕ
+            path = @"C:\Users\Вика\Desktop\encrypted.txt";
+            data = File.ReadAllBytes(path);
+            int tableCount = data.Length / (rowCount * columnCount) + 1; //количество таблиц
+            int counter = 0;
+            while (counter < tableCount)
+            {
+                if (counter < tableCount - 1)    //если таблица не последняя (т.е. полная)
+                {
+                    byte[] dataBlock = new byte[rowCount * columnCount];
+                    Array.Copy(data,
+                        counter * (rowCount * columnCount),
+                        dataBlock,
+                        0,
+                        rowCount * columnCount);
+
+                    byte[] decryptedBlock = DecryptData(dataBlock, dataBlock.Length, columnCount, rowCount, key);
+                    decryptedOutput.Write(decryptedBlock);
+
+                }
+                else
+                {
+                    List<byte> dataBlock = new List<byte>(rowCount * columnCount);
+                    for (int i = 0; i < data.Length % (rowCount * columnCount); i++) //запись оставшихся символов
+                    {
+                        dataBlock.Add(data[counter * (rowCount * columnCount) + i]);
+                    }
+
+                    byte[] decryptedBlock = DecryptData(dataBlock.ToArray(), dataBlock.Count, columnCount, rowCount, key);
+                    decryptedOutput.Write(decryptedBlock);
+
+                }
+                counter++;
+            }
+        }
+    
+    }
+
+    public static byte[] DecryptData(byte[] encryptedData, int dataLength, int columnCount, int rowCount, string key)
+    {
+        //ДЕШИФРОВАНИЕ
+        Table table = new Table(rowCount, columnCount); 
+
+        int fullRowCount = dataLength / columnCount;          //число полных строк = длина/число столбцов
+        int lastRowSymbolsCount = dataLength % columnCount;   //число символов в последней строке
+        List<byte> decryptedData = new List<byte>(dataLength);
+
+        int k = 0;
+        for (int i = 0; i < columnCount; i++)                           //проход по ключу
+        {
+            int curColumnIndex = (int)Char.GetNumericValue(key[i]) - 1; //индекс текущего столбца
+            if (curColumnIndex > lastRowSymbolsCount - 1)               //если текущий столбец неполный
+            {
+                for (int j = 0; j < fullRowCount; j++)
+                {
+                    table.SourceTable[j][curColumnIndex] = encryptedData[k];
+                    k++;
+                }
+            }
+            else
+            {
+                for (int j = 0; j < fullRowCount + 1; j++)          //текущий столбец полный
+                {
+                    table.SourceTable[j][curColumnIndex] = encryptedData[k];
+                    k++;
+                }
+            }
+        }
+
+        k = 0;
+        for (int i = 0; i < rowCount; i++)
+        {
+            for (int j = 0; j < columnCount; j++)
+            {
+                if (k < dataLength)
+                {
+                    decryptedData.Add(table.SourceTable[i][j]);
+                    k++;
+                }
+                else 
+                    return decryptedData.ToArray();
+            }
+        }
+        return decryptedData.ToArray();
+    }
+    public static byte[] EncryptData(byte[] data, int columnCount, int rowCount, string key)
+    {
+        Table table = new Table(rowCount, columnCount);
+
+        int fullRowCount = data.Length / columnCount;          //число полных строк = длина/число столбцов
+        int lastRowSymbolsCount = data.Length % columnCount;   //число символов в последней строке
+        int k = 0;
+        for (int i = 0; i < fullRowCount; i++)            //заполняем все целые строки
+        {
+            for (int j = 0; j < columnCount; j++)
+            {
+                table.SourceTable[i][j] = ((byte)data[k]);
+                k++;
+            }
+        }
+        for (int i = 0; i < lastRowSymbolsCount; i++)   //заполянем последнюю строку
+        {
+            table.SourceTable[fullRowCount][i] = ((byte)data[k + i]);
+        }
+
+        //ШИФРОВАНИЕ
+
+        List<byte> cryptedData = new List<byte>(data.Length);
+
+        for (int i = 0; i < columnCount; i++)                           //проход по ключу
+        {
+            int curColumnIndex = (int)Char.GetNumericValue(key[i]) - 1; //индекс текущего столбца
+            if (curColumnIndex > lastRowSymbolsCount - 1)               //если текущий столбец неполный
+            {
+                for (int j = 0; j < fullRowCount; j++)                 
+                {
+                    cryptedData.Add(table.SourceTable[j][curColumnIndex]);
+                }
+            }
+            else
+            {
+                for (int j = 0; j < fullRowCount + 1; j++)          //текущий столбец полный
+                {
+                    cryptedData.Add(table.SourceTable[j][curColumnIndex]);
+                }
+            }
+        }
+
+        return cryptedData.ToArray();
+    }

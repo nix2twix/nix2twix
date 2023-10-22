@@ -1,0 +1,12 @@
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\Risovatel.csproj.AssemblyReference.cache
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\Risovatel.csproj.SuggestedBindingRedirects.cache
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\RefactorMe.Properties.Resources.resources
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\Risovatel.csproj.GenerateResource.cache
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\Risovatel.csproj.CoreCompileInputs.cache
+C:\Users\Вика\Documents\CSHARP\risovatel c#\bin\Debug\RefactorMe.exe.config
+C:\Users\Вика\Documents\CSHARP\risovatel c#\bin\Debug\RefactorMe.exe
+C:\Users\Вика\Documents\CSHARP\risovatel c#\bin\Debug\RefactorMe.pdb
+C:\Users\Вика\Documents\CSHARP\risovatel c#\bin\Debug\nunit.framework.dll
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\Risovatel.csproj.CopyComplete
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\RefactorMe.exe
+C:\Users\Вика\Documents\CSHARP\risovatel c#\obj\Debug\RefactorMe.pdb

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "84c0439a-b05a-4bfc-a73e-ba1f99953814": {
+      "ProjectGuid": "84c0439a-b05a-4bfc-a73e-ba1f99953814",
+      "DisplayName": "Mazes",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,15 @@
+D:\WORK\CODE\CSHARP\ComplexNumbers\bin\Debug\net7.0\ComplexNumbers.exe
+D:\WORK\CODE\CSHARP\ComplexNumbers\bin\Debug\net7.0\ComplexNumbers.deps.json
+D:\WORK\CODE\CSHARP\ComplexNumbers\bin\Debug\net7.0\ComplexNumbers.runtimeconfig.json
+D:\WORK\CODE\CSHARP\ComplexNumbers\bin\Debug\net7.0\ComplexNumbers.dll
+D:\WORK\CODE\CSHARP\ComplexNumbers\bin\Debug\net7.0\ComplexNumbers.pdb
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.csproj.AssemblyReference.cache
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.AssemblyInfoInputs.cache
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.AssemblyInfo.cs
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.csproj.CoreCompileInputs.cache
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.dll
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\refint\ComplexNumbers.dll
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.pdb
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ComplexNumbers.genruntimeconfig.cache
+D:\WORK\CODE\CSHARP\ComplexNumbers\obj\Debug\net7.0\ref\ComplexNumbers.dll

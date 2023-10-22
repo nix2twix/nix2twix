@@ -1,0 +1,10 @@
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.csproj.AssemblyReference.cache
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.csproj.SuggestedBindingRedirects.cache
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.csproj.CoreCompileInputs.cache
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\bin\Debug\Rectangles.exe.config
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\bin\Debug\Rectangles.exe
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\bin\Debug\Rectangles.pdb
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\bin\Debug\TestingRoom.dll
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.csproj.CopyComplete
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.exe
+C:\Users\Вика\Documents\CSHARP\courses\rectangles c#\obj\Debug\Rectangles.pdb

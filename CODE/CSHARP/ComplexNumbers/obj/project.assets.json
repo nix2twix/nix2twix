@@ -1,0 +1,122 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "StyleCop.MSBuild/6.2.0": {
+        "type": "package",
+        "build": {
+          "build/StyleCop.MSBuild.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StyleCop.MSBuild/6.2.0": {
+      "sha512": "6J51Kt5X+Os+Ckp20SFP1SlLu3tZl+3qBhCMtJUJqGDgwSr4oHT+eg545hXCdp07tRB/8nZfXTOBDdA1XXvjUw==",
+      "type": "package",
+      "path": "stylecop.msbuild/6.2.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/StyleCop.MSBuild.targets",
+        "license.txt",
+        "stylecop.msbuild.6.2.0.nupkg.sha512",
+        "stylecop.msbuild.nuspec",
+        "tools/CustomDictionary.en-GB.xml",
+        "tools/CustomDictionary.en-US.xml",
+        "tools/CustomDictionary.xml",
+        "tools/Settings.StyleCop",
+        "tools/StyleCop.CSharp.Rules.dll",
+        "tools/StyleCop.CSharp.dll",
+        "tools/StyleCop.SettingsEditor.exe",
+        "tools/StyleCop.dll",
+        "tools/de-DE/StyleCop.CSharp.Rules.resources.dll",
+        "tools/en-GB/StyleCop.CSharp.Rules.resources.dll",
+        "tools/es-MX/StyleCop.CSharp.Rules.resources.dll",
+        "tools/fr-FR/StyleCop.CSharp.Rules.resources.dll",
+        "tools/mssp7en.dll",
+        "tools/mssp7en.lex",
+        "tools/pl-PL/StyleCop.CSharp.Rules.resources.dll",
+        "tools/pt-BR/StyleCop.CSharp.Rules.resources.dll",
+        "tools/ru-RU/StyleCop.CSharp.Rules.resources.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "StyleCop.MSBuild >= 6.2.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Вика\\.nuget\\packages\\": {},
+    "D:\\Программы\\VS2\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\WORK\\CODE\\CSHARP\\ComplexNumbers\\ComplexNumbers.csproj",
+      "projectName": "ComplexNumbers",
+      "projectPath": "D:\\WORK\\CODE\\CSHARP\\ComplexNumbers\\ComplexNumbers.csproj",
+      "packagesPath": "C:\\Users\\Вика\\.nuget\\packages\\",
+      "outputPath": "D:\\WORK\\CODE\\CSHARP\\ComplexNumbers\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Программы\\VS2\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Вика\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "StyleCop.MSBuild": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.2.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

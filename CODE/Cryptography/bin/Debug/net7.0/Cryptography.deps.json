@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Cryptography/1.0.0": {
+        "dependencies": {
+          "System.Text.Encoding.CodePages": "8.0.0-rc.1.23419.4"
+        },
+        "runtime": {
+          "Cryptography.dll": {}
+        }
+      },
+      "System.Text.Encoding.CodePages/8.0.0-rc.1.23419.4": {
+        "runtime": {
+          "lib/net7.0/System.Text.Encoding.CodePages.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.41904"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net7.0/System.Text.Encoding.CodePages.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.41904"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cryptography/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Text.Encoding.CodePages/8.0.0-rc.1.23419.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sfmFF9W5+IObbjcVNk3E5DSp4HWtk1R8j/UhYkfpyZN0u1/8O/U/uyMx8ywzjct2tcrYjDmDZtdstgegdJFC+g==",
+      "path": "system.text.encoding.codepages/8.0.0-rc.1.23419.4",
+      "hashPath": "system.text.encoding.codepages.8.0.0-rc.1.23419.4.nupkg.sha512"
+    }
+  }
+}

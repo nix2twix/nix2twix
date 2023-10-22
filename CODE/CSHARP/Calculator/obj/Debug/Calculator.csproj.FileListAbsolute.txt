@@ -1,0 +1,11 @@
+D:\WORK\CODE\CSHARP\Calculator\bin\Debug\Calculator.exe.config
+D:\WORK\CODE\CSHARP\Calculator\bin\Debug\Calculator.exe
+D:\WORK\CODE\CSHARP\Calculator\bin\Debug\Calculator.pdb
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.csproj.SuggestedBindingRedirects.cache
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.exe
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.pdb
+D:\WORK\CODE\CSHARP\Calculator\obj\Debug\Calculator.Form.resources

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "105abc87-92a4-42ba-8b34-5232d8a1fdc8": {
+      "ProjectGuid": "105abc87-92a4-42ba-8b34-5232d8a1fdc8",
+      "DisplayName": "Pluralize",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

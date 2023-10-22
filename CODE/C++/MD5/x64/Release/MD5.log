@@ -1,0 +1,6 @@
+﻿  MD5.cpp
+  Создание кода
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 104 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  MD5.vcxproj -> D:\WORK\CODE\C++\MD5\x64\Release\MD5.exe

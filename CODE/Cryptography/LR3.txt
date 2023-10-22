@@ -1,0 +1,128 @@
+﻿static void Main(string[] args)
+    {
+        string pathIn = @"D:\WORK\CODE\Cryptography\file.docx";
+        string input = File.ReadAllText(pathIn);
+
+        Console.Write("Write the key word: ");
+        string keyStr = Console.ReadLine();
+
+        char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+            'u', 'v', 'w', 'x', 'y', 'z', ' '
+        };
+
+        byte[] data = File.ReadAllBytes(pathIn);
+        using (BinaryWriter decryptedOutput = new BinaryWriter(
+            new FileStream(@"D:\WORK\CODE\Cryptography\out.docx", FileMode.Create), Encoding.UTF8))
+        {
+            decryptedOutput.Write(Encode(data, Encoding.UTF8.GetBytes(keyStr)));
+        }
+
+        data = File.ReadAllBytes(@"D:\WORK\CODE\Cryptography\out.docx");
+        using (BinaryWriter decryptedOutput = new BinaryWriter(
+          new FileStream(@"D:\WORK\CODE\Cryptography\out2.docx", FileMode.Create), Encoding.UTF8))
+        {
+            decryptedOutput.Write(Decode(data, Encoding.UTF8.GetBytes(keyStr)));
+        }
+    }
+
+    //ШИФРОВАНИЕ
+    public static string EncodeString(string input, string key, char[] alphabet)
+    {
+
+        string result = "";
+
+        int keyCharIndex = 0;
+
+        foreach (char symbol in input)
+        {
+            //формула вычисления сдвига
+            //сдвиг = (индекс исходного симв. + индекс ключа) / мощность алф
+            int movementCount = (Array.IndexOf(alphabet, symbol) +
+                Array.IndexOf(alphabet, key[keyCharIndex])) % alphabet.Length;
+
+            result += alphabet[movementCount];
+
+            keyCharIndex++;
+            //если ключ закончился, обнуляем его индекс
+            if ((keyCharIndex + 1) == key.Length)
+                keyCharIndex = 0;
+        }
+
+        return result;
+    }
+
+    //РАСШИФРОВАНИЕ
+    public static string DecodeString(string input, string key, char[] alphabet)
+    {
+
+        string result = "";
+
+        int keyCharIndex = 0;
+
+        foreach (char symbol in input)
+        {
+            //формула обратного сдвига
+            //сдвиг = (индекс исходного симв. + мощность индекс ключа) / мощность алф
+            int movementCount = (Array.IndexOf(alphabet, symbol) + alphabet.Length -
+                Array.IndexOf(alphabet, key[keyCharIndex])) % alphabet.Length ;
+
+            result += alphabet[movementCount];
+
+            keyCharIndex++;
+
+            if ((keyCharIndex + 1) == key.Length)
+                keyCharIndex = 0;
+        }
+
+        return result;
+    }
+
+    public static byte[] Encode(byte[] input, byte[] key)
+    {
+
+        byte[] result = new byte[input.Length];
+
+        int keyCharIndex = 0;
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            //формула вычисления сдвига
+            //сдвиг = (индекс исходного симв. + индекс ключа) / мощность алф
+            int movementCount = (input[i] + key[keyCharIndex]) % 256;
+
+            result[i] = (byte)movementCount;
+
+            keyCharIndex++;
+            //если ключ закончился, обнуляем его индекс
+            if ((keyCharIndex + 1) == key.Length)
+                keyCharIndex = 0;
+        }
+
+        return result;
+    }
+
+    //РАСШИФРОВАНИЕ
+    public static byte[] Decode(byte[] input, byte[] key)
+    {
+
+        byte[] result = new byte[input.Length];
+
+        int keyCharIndex = 0;
+
+        for(int i = 0; i < input.Length; i++) 
+        { 
+            //формула обратного сдвига
+            //сдвиг = (индекс исходного симв. + мощность индекс ключа) / мощность алф
+            int movementCount = (input[i] + 256 - key[keyCharIndex]) % 256;
+
+            result[i] = (byte)movementCount;
+
+            keyCharIndex++;
+
+            if ((keyCharIndex + 1) == key.Length)
+                keyCharIndex = 0;
+        }
+
+        return result;
+    }

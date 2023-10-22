@@ -1,0 +1,14 @@
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.exe
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.deps.json
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.dll
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ref\ConsoleApp1.dll
+D:\С++\Project1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.pdb
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfo.cs
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.dll
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleApp1.dll
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.pdb
+D:\С++\Project1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
