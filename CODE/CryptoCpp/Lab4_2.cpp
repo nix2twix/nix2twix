@@ -74,7 +74,7 @@ void DecryptFile(string path, vector<unsigned char> gamma)
 
 int main()
 {
-    string dataPath = "C:\\Users\\Вика\\Desktop\\test.txt";
+    string dataPath = "C:\\Users\\Вика\\Desktop\\encrypt.txt";
     string gammaValue;
     vector<unsigned char> gamma;
 
@@ -90,11 +90,11 @@ int main()
 
     // Шифрование
 
-    EncryptFile(dataPath, gamma);
+    // EncryptFile(dataPath, gamma);
 
     // Расшифрование
 
-    //DecryptFile(dataPath, gamma);
+    DecryptFile(dataPath, gamma);
 
     return 0;
 }
