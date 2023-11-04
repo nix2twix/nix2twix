@@ -1,76 +1,71 @@
-#include <vector>
 #include <iostream>
-#include <algorithm>
-#include <cmath>
-#include<stdio.h>
-int countPointsInInterval(const std::vector<double>& array, 
-    double lowerBound, double upperBound) {
-    int count = 0;
-    for (const double& value : array) {
-        if (value >= lowerBound && value <= upperBound) {
-            count++;
+#include <cstdlib>
+#include <ctime>  
+#include <fstream>
+#include <vector>
+#include <random>
+
+void Randomizer() 
+{
+    std::ofstream inputFile("input.txt");
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dis(0.0, 1.0);
+
+
+    int numPairs = 10;
+
+    for (int i = 0; i < numPairs; ++i) 
+    {
+        double R = dis(gen);
+        double G = dis(gen);
+        inputFile << R * 5 << " " << G * 3 << "\n";
+    }
+    inputFile.close();
+}
+
+bool isInsideRectangle(double x, double y) 
+{
+    return (x >= 0.0 && x <= 5.0 && y >= 0.0 && y <= 3.0);
+}
+
+bool isInsideHexagon(double x, double y) 
+{
+    return (
+        (y >= 0.5 * x) && (y <= x) && (x >= 0) && (x <= 2)
+        || (y >= -x+3) && (y <= 0.5*x+1) && (x >= 2) && (x <= 3)
+        || (y >= 0) && (y <= 0.5 * x + 1) && (x >= 3) && (x <= 4)
+        || (y >= x - 4) && (y <= -2*x+11) && (x >= 4) && (x <= 5)
+        );
+}
+
+int main(void) 
+{
+    Randomizer();
+    std::ifstream inputFile("input.txt");
+    std::vector<std::pair<double, double>> points;
+    double x, y;
+    int ctrY = 54, ctrTotal = 120;
+
+    while (inputFile >> x >> y) 
+    {
+        points.emplace_back(x, y);
+    }
+
+    inputFile.close();
+
+    for (const auto& point : points) 
+    {
+        if (isInsideHexagon(point.first, point.second))
+        {
+            ctrY++;
+            std::cout << "yes\n";
         }
-    }
-    return count;
-}
-long double fact(int N)
-{
-    if (N < 0) 
-        return 0; 
-    if (N == 0)
-        return 1; 
-    else 
-        return N * fact(N - 1); 
-}
-int main(void)
-{
-    std::vector<double> array = {
-     22.1749, 40.3055, 37.4866, 6.06084, 28.131, 45.0656, 25.0642,
-     6.12412, 23.1014, 9.34806, 6.89926, 43.0823, 50.9737, 4.89541,
-     67.3874, 0.497812, 1.09247, 23.1476, 1.97095, 20.4259, 43.4787,
-     4.36287, 13.999, 7.51715, 80.772, 15.6626, 1.66489, 24.0017,
-     10.2065, 8.20256, 86.6419, 11.8489, 2.46116, 17.7488, 57.7915,
-     10.1847, 3.74553, 2.31258, 23.6534, 1.28129, 46.6661, 6.32672,
-     0.331028, 31.7764, 10.0521, 69.5339, 12.4367, 59.071, 3.71541,
-     13.4716, 7.6256, 10.9603, 26.7634, 2.68612, 77.1816, 23.8567,
-     3.94396, 0.37901, 18.3138, 28.2016, 28.7041, 7.88782, 1.73758,
-     10.8989, 57.3413, 7.28225, 2.87286, 24.3974, 45.1212, 13.7531,
-     0.203013, 25.7793, 36.1394, 6.46566, 3.7101, 27.4493, 9.75163,
-     1.89593, 43.7714, 20.9937, 40.3706, 45.3776, 29.6927, 5.93669,
-     65.1509, 55.1075, 16.3003, 11.2171, 118.096, 2.19069, 63.8129,
-     11.7229, 27.479, 29.5903, 46.3085, 11.6706, 10.5625, 35.8881,
-     83.8715, 3.63411, 10.8106, 44.2058, 23.0438, 13.0849, 53.1016,
-     18.0438, 39.9786, 50.1323, 108.392, 59.9115, 0.198398, 14.5036,
-     16.4221, 7.71894, 63.7346, 6.49632, 2.00895, 68.4612, 18.1998,
-     30.6465, 24.5477, 0.843435, 70.1447, 15.4423, 38.795, 39.8957,
-     9.02742, 4.55712, 114.501, 2.86003, 0.104748, 0.486919, 118.97,
-     3.79344, 25.728, 10.6103, 67.4326, 23.8725, 3.89042, 23.7203, 5.049,
-     23.8824, 4.88984, 19.9046, 47.1392, 14.7611, 15.4763, 23.0573,
-     8.04838, 17.051
-    };
 
-    //std::cout << array.size() << " ";
-
-    std::sort(array.begin(), array.end());
-
-    int count = 0;
-    int width = 8;
-    double step = 13.208;
-    double start = array[0];
-    double sum = 0;
-    for(int i = 0; i < 9; i++)
-    {  
-        std::cout << std::fixed;
-        std::cout.precision(12);
-        std::cout << (std::pow(25.7452, i)*std::exp(-25.7452)) / fact(i)
-            << "\n";
-
-        //count = (count + 1) % width;
-        //if (count == 0)
-        //    std::cout << "\n";
-        
+        ctrTotal++;
+        std::cout << (((double)ctrY * 15) / ctrTotal) << "\n";
     }
 
-
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

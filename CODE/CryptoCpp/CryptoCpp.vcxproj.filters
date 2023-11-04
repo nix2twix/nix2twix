@@ -19,4 +19,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\Вика\Desktop\decrypt.txt" />
+    <Text Include="C:\Users\Вика\Desktop\encrypt.txt" />
+    <Text Include="C:\Users\Вика\Desktop\test.txt" />
+  </ItemGroup>
 </Project>

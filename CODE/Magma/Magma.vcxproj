@@ -127,7 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Magma.cpp" />
+    <ClCompile Include="CBC_DECRYPTION.cpp" />
+    <ClCompile Include="CBC_ENCRYPTION.cpp" />
+    <ClCompile Include="ECB_DECRYPTION.cpp" />
+    <ClCompile Include="ECB_ENCRYPTION.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
@@ -135,8 +138,9 @@
     <Text Include="output.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Functions.h" />
+    <ClInclude Include="MagmaFunctions.h" />
     <ClInclude Include="MagmaConst.h" />
+    <ClInclude Include="MagmaRounds.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

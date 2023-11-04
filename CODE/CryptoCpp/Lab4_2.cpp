@@ -20,8 +20,8 @@ void EncryptFile(string path, vector<unsigned char> gamma)
 
     string encOutPath = "C:\\Users\\Вика\\Desktop\\encrypt.txt";
     ofstream encryptedFile(encOutPath, ios::binary);
-        int gammaIndex = 0;
-    for (int i = 0; i < data.size(); i++)
+    
+    for (int gammaIndex = 0, i = 0; i < data.size(); i++)
     {
         // Сдвиг на 5 бит влево
         data[i] = (data[i] << 5) | (data[i] >> 3);
@@ -33,6 +33,7 @@ void EncryptFile(string path, vector<unsigned char> gamma)
         gammaIndex = (gammaIndex + 1) % gamma.size();
 
     }
+
     encryptedFile.write(reinterpret_cast<const char*>(data.data()), data.size());
     encryptedFile.close();
     dataFile.close();
@@ -74,16 +75,19 @@ void DecryptFile(string path, vector<unsigned char> gamma)
 
 int main()
 {
+    // Для шифрования в путь прописать test.txt
+    // Для расшифрования прописать encrypt.txt
+
     string dataPath = "C:\\Users\\Вика\\Desktop\\encrypt.txt";
     string gammaValue;
     vector<unsigned char> gamma;
 
-    cout << "Write the gamma (2 symbols): ";
+    cout << "Write the gamma (4 symbols): ";
     cin >> gammaValue;
 
     // Преобразование ключа в массив байтов
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 4; i++)
     {
         gamma.push_back(gammaValue[i]);
     }
@@ -94,7 +98,7 @@ int main()
 
     // Расшифрование
 
-    DecryptFile(dataPath, gamma);
+        DecryptFile(dataPath, gamma);
 
     return 0;
 }
