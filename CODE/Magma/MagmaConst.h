@@ -22,13 +22,14 @@ constexpr int BLOCK_BIT_SIZE = FULL_BLOCK_BIT_SIZE / 2;
 
 constexpr int M = FULL_BLOCK_BYTE_SIZE * 2;
 
-const string SINCHROSIGN = "17VvboeTCdN6pRKyAY4Is3uw4Sh8i5Df1GzJnPaqUQLrlMWHg0Fx9Oajk2BtZmEic9hA64aYbFkIjxLzWq0XMsNnvPdJ3Cy17VvboeTCdN6pRKyAYIs3uw4Sh8i5Df1GzJnPaqUQLrlMWHg0Fx9Oajk2BtZmEic9hA64aYbFkIjxLzWq0XMsNnvPdJ3CyEBo2tgR8UmVfS5plZw1QrHuGcOTiD7Kd2EBo2tgR8UmVfS5plZw1QrHuGcOTiD7Kd2";
-
 /* PATHS */
 
-const string KEY_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\key.txt";
-const string DATA_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\input.txt";
-const string OUTPUT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\output.txt";
+const string KEY_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\key.txt";
+const string DATA_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\wordfile.docx";
+const string OUTPUT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\output.txt";
+const string ENCRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\encrypt.docx";
+const string DECRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\decrypt.docx";
+const string SINCHROSIGN_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\sinchrosign.txt";
 
 const vector<vector<int>> ReplacementTable = {
     {0x1, 0x7, 0x4, 0x9, 0x8, 0xf, 0xa, 0x3, 0xc, 0x5, 0xe, 0xd, 0x6, 0x0, 0xb, 0x2},

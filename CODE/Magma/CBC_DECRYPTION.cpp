@@ -1,6 +1,6 @@
 ﻿#include "MagmaRounds.h"
 
-int main()
+int main_CBC_DECRYPT()
 {
     // Считывание ключа
     ifstream keyFile(KEY_PATH, ios::binary);
@@ -14,16 +14,15 @@ int main()
         key.push_back(buff);
     }
 
-    ifstream dataFile(OUTPUT_PATH, ios::binary);
-    vector <unsigned char> data;
-
     // Определение размера файла в байтах
+    ifstream dataFile(ENCRYPT_PATH, ios::binary);
+
     dataFile.seekg(0, ios::end);
     int fileSize = dataFile.tellg();
     dataFile.seekg(0, ios::beg);
 
     // Считывание всех данных
-
+    vector <unsigned char> data;
     for (int i = 0; i < fileSize; i++)
     {
         dataFile.read(&buff, sizeof(unsigned char));
@@ -37,11 +36,19 @@ int main()
         с зацеплением [Cipher Block Chaining]
     */
 
-    vector<unsigned char> IV(SINCHROSIGN.begin(), SINCHROSIGN.end());
+    // Считывание использованной при шифровании синхропосылки
+    ifstream sinchrosignFile(SINCHROSIGN_PATH, ios::binary);
+    vector<unsigned char> IV;
 
-    vector<uint64_t> shiftRegister(4);
+    for (int i = 0; i < M; i++)
+    {
+        sinchrosignFile.read(&buff, sizeof(unsigned char));
+        IV.push_back(buff);
+    }
+    sinchrosignFile.close();
 
     // Заполнение регистра сдвига значением синхропосылки
+    vector<uint64_t> shiftRegister(4);
 
     shiftRegister = MakeRegister(IV);
 
@@ -56,11 +63,10 @@ int main()
     uint64_t L, R;
 
     // Расшифрование файла, разделённого на блоки
+    ofstream decryptedFile(DECRYPT_PATH, ios::binary);
 
     for (int i = 0; i < fileSize / FULL_BLOCK_BYTE_SIZE; i++)
     {
-        ofstream decryptedFile(OUTPUT_PATH, ios::binary | ios::app);
-
         block.clear();
         block.resize(FULL_BLOCK_BYTE_SIZE);
 
@@ -101,9 +107,11 @@ int main()
         decryptedFile.write(reinterpret_cast<const char*>(xorBlock.data()), xorBlock.size());
     }
 
+    decryptedFile.close();
+
     // Усечение последнего блока, если есть необходимость
 
-    RemovePadding(OUTPUT_PATH);
+    RemovePadding(DECRYPT_PATH);
 
     return EXIT_SUCCESS;
 }

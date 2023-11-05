@@ -1,6 +1,6 @@
 #include "MagmaRounds.h"
 
-int main2()
+int main_CBC_ENCRYPT()
 {
     // Считывание ключа
     ifstream keyFile(KEY_PATH, ios::binary);
@@ -14,9 +14,7 @@ int main2()
         key.push_back(buff);
     }
 
-    vector <unsigned char> data;
-
-    // Определение размера файла в байтах
+    // Определение размера файла с данными в байтах
     ifstream dataFile(DATA_PATH, ios::binary);
 
     dataFile.seekg(0, ios::end);
@@ -25,29 +23,27 @@ int main2()
 
     dataFile.close();
 
-    // Дополнение последнего блока при необходимости
-
+    // Дополнение последнего блока данных при необходимости
     int padCount = Padding(fileSize, DATA_PATH);
 
     // Считывание данных
     dataFile.open(DATA_PATH, ios::binary);
+    vector <unsigned char> data;
     for (int i = 0; i < fileSize + padCount; i++)
     {
         dataFile.read(&buff, sizeof(unsigned char));
         data.push_back(buff);
     }
-
     dataFile.close();
-
 
     /*
         Режим шифрования простой заменой
-        с зацеплением[Cipher Block Chaining]
+        с зацеплением [Cipher Block Chaining]
     */
 
-    vector<unsigned char> IV(SINCHROSIGN.begin(), SINCHROSIGN.end());
+    vector<unsigned char> IV = GenerateSinchrosign();
 
-    vector<uint64_t> shiftRegister(4);
+    vector<uint64_t> shiftRegister(M / 8);
 
     // Заполнение регистра сдвига значением синхропосылки
 
@@ -64,11 +60,10 @@ int main2()
     uint64_t L, R;
 
     // Шифрование файла, разделённого на блоки
+    ofstream encryptedFile(ENCRYPT_PATH, ios::binary);
 
     for (int i = 0; i < (fileSize + padCount) / FULL_BLOCK_BYTE_SIZE; i++)
     {
-        ofstream encryptedFile(OUTPUT_PATH, ios::binary | ios::app);
-
         block.clear();
         block.resize(FULL_BLOCK_BYTE_SIZE);
 
@@ -78,7 +73,7 @@ int main2()
             block.begin()
         );
 
-        // Зацепление
+        // XOR
         for (int q = 0; q < FULL_BLOCK_BYTE_SIZE; q++)
         {
             xorBlock[q] = block[q] ^ IV[q];

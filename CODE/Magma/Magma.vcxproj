@@ -131,16 +131,19 @@
     <ClCompile Include="CBC_ENCRYPTION.cpp" />
     <ClCompile Include="ECB_DECRYPTION.cpp" />
     <ClCompile Include="ECB_ENCRYPTION.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="key.txt" />
-    <Text Include="output.txt" />
+    <ClCompile Include="OFB_DECRYPTION.cpp" />
+    <ClCompile Include="OFB_ENCRYPTION.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagmaFunctions.h" />
     <ClInclude Include="MagmaConst.h" />
     <ClInclude Include="MagmaRounds.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Examples\input.txt" />
+    <Text Include="Examples\key.txt" />
+    <Text Include="Examples\output.txt" />
+    <Text Include="Examples\sinchrosign.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

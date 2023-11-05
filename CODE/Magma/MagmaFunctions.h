@@ -1,6 +1,9 @@
 #pragma once
 #include "MagmaConst.h"
 #include <fstream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
 
 // –азделение 64-битного блока пополам 
 
@@ -78,7 +81,9 @@ inline int Padding(int fileSize, string path)
     // ƒополнение последнего блока данных на additionCount байт
 
     int lastBlockCount = fileSize % FULL_BLOCK_BYTE_SIZE;
-    int additionByteCount = FULL_BLOCK_BYTE_SIZE - lastBlockCount;
+    int additionByteCount = (lastBlockCount == 0)
+        ? 0
+        : FULL_BLOCK_BYTE_SIZE - lastBlockCount;
 
     ofstream rewriteDataFile(path, ios::binary | ios::app);
 
@@ -111,6 +116,7 @@ inline void RemovePadding(string path)
 
     char byte;
     bool isOneBitFound = false;
+    int count = 0;
 
     while (position > 0) 
     {
@@ -122,6 +128,9 @@ inline void RemovePadding(string path)
             isOneBitFound = true;
             break;
         }
+        if (count > FULL_BLOCK_BYTE_SIZE)
+            break;
+        count++;
     }
 
     if (isOneBitFound) 
@@ -149,6 +158,7 @@ inline void RemovePadding(string path)
 
 inline vector<uint64_t> MakeRegister(const vector<unsigned char>& IV)
 {
+
     vector<uint64_t> shiftRegister(4, 0);
 
     uint64_t firstNumber = 0;
@@ -182,9 +192,29 @@ inline vector<uint64_t> MakeRegister(const vector<unsigned char>& IV)
     return shiftRegister;
 }
 
+inline vector<unsigned char> GenerateSinchrosign() 
+{
+    const string charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const int byteLength = 256 / 8;
+    vector<unsigned char> result(byteLength);
+
+   srand(static_cast<unsigned int>(time(nullptr)));
+
+    for (int i = 0; i < byteLength; ++i) 
+    {
+        result[i] = charset[rand() % charset.length()];
+    }
+
+    ofstream sinchrosignFile(SINCHROSIGN_PATH, ios::binary);
+    sinchrosignFile.write(reinterpret_cast<const char*>(result.data()), result.size());
+    sinchrosignFile.close();
+
+    return result;
+}
+
 inline vector<unsigned char> SplitRegister(const vector<uint64_t>& shiftRegister)
 {
-    vector<unsigned char> IV(FULL_BLOCK_BYTE_SIZE);
+    vector<unsigned char> IV;
 
     for (int i = 0; i < shiftRegister.size(); i++)
     {

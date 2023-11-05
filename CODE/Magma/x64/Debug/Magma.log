@@ -1,8 +1,8 @@
 ﻿  CBC_DECRYPTION.cpp
-D:\WORK\NIX2TWIX\CODE\Magma\MagmaFunctions.h(110,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
-D:\WORK\NIX2TWIX\CODE\Magma\CBC_DECRYPTION.cpp(22,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\NIX2TWIX\CODE\Magma\MagmaFunctions.h(115,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\NIX2TWIX\CODE\Magma\CBC_DECRYPTION.cpp(21,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
   CBC_ENCRYPTION.cpp
-D:\WORK\NIX2TWIX\CODE\Magma\MagmaFunctions.h(110,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
-D:\WORK\NIX2TWIX\CODE\Magma\CBC_ENCRYPTION.cpp(23,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\NIX2TWIX\CODE\Magma\MagmaFunctions.h(115,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\WORK\NIX2TWIX\CODE\Magma\CBC_ENCRYPTION.cpp(21,18): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
   Создание кода...
   Magma.vcxproj -> D:\WORK\NIX2TWIX\CODE\Magma\x64\Debug\Magma.exe

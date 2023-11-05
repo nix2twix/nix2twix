@@ -1,7 +1,9 @@
 #include "MagmaRounds.h"
 
-int main_n2()
+int main_ECB_DECRYPT()
 {
+    /* ДЛЯ ОДНОГО БЛОКА ДАННЫХ */
+
     // Считывание ключа
     ifstream keyFile(KEY_PATH, ios::binary);
     vector <unsigned char> key;
@@ -14,10 +16,10 @@ int main_n2()
         key.push_back(buff);
     }
 
+    // Считывание блока данных
+
     ifstream dataFile(OUTPUT_PATH, ios::binary);
     vector <unsigned char> data;
-
-    // Считывание блока данных
 
     for (int i = 0; i < FULL_BLOCK_BYTE_SIZE; i++)
     {
@@ -25,8 +27,10 @@ int main_n2()
         data.push_back(buff);
     }
 
+    auto decryptedData = DecryptionBlock(key, data);
 
-    DecryptionBlock(key, data);
+    ofstream decryptedFile(OUTPUT_PATH, ios::binary);
+    decryptedFile.write(reinterpret_cast<const char*>(decryptedData.data()), decryptedData.size());
 
     return EXIT_SUCCESS;
 }
