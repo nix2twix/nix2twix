@@ -25,10 +25,10 @@ constexpr int M = FULL_BLOCK_BYTE_SIZE * 2;
 /* PATHS */
 
 const string KEY_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\key.txt";
-const string DATA_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\wordfile.docx";
+const string DATA_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\lNYmWn2LQLE.jpg";
 const string OUTPUT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\output.txt";
-const string ENCRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\encrypt.docx";
-const string DECRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\decrypt.docx";
+const string ENCRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\encrypt.jpg";
+const string DECRYPT_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\decrypt.jpg";
 const string SINCHROSIGN_PATH = "D:\\WORK\\NIX2TWIX\\CODE\\Magma\\Examples\\sinchrosign.txt";
 
 const vector<vector<int>> ReplacementTable = {
