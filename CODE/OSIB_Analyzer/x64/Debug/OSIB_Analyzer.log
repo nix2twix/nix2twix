@@ -1,0 +1,7 @@
+﻿  OSIB_Analyzer.cpp
+D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\OSIB_Analyzer.cpp(18,8): warning C4101: pipeSysteminfo: неиспользованная локальная переменная
+D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\OSIB_Analyzer.cpp(15,7): warning C4101: bufferIpconfig: неиспользованная локальная переменная
+D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\OSIB_Analyzer.cpp(16,8): warning C4101: pipeIpconfig: неиспользованная локальная переменная
+D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\OSIB_Analyzer.cpp(17,8): warning C4101: pipeFindstr: неиспользованная локальная переменная
+D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\OSIB_Analyzer.cpp(19,8): warning C4101: pipe: неиспользованная локальная переменная
+  OSIB_Analyzer.vcxproj -> D:\WORK\NIX2TWIX\CODE\OSIB_Analyzer\x64\Debug\OSIB_Analyzer.exe

@@ -92,7 +92,7 @@ inline int Padding(int fileSize, string path)
     {
         if (i == 0)
         {
-            buff = (buff << 2) | 0x10;
+            buff = (buff << 2) | 0x80;
         }
         else
         {
@@ -123,7 +123,7 @@ inline void RemovePadding(string path)
         inputFile.seekg(--position);
         inputFile.get(byte);
 
-        if (byte == '\x10') 
+        if (byte == '\x80') 
         {
             isOneBitFound = true;
             break;

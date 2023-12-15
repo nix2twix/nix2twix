@@ -1,2 +1,3 @@
 D:\WORK\CODE\Statistics\x64\Debug\Statistics.exe
 D:\WORK\NIX2TWIX\CODE\Statistics\x64\Debug\Statistics.exe
+D:\STUDY\NIX2TWIX\CODE\Statistics\x64\Debug\Statistics.exe
